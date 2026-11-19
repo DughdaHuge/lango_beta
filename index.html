@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LÀNGO | Hành trình Làng nghề & OCOP Việt Nam</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Be Vietnam Pro & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF7F2',
+            creamDark: '#F2ECE1',
+            terracotta: '#C85A32',
+            terracottaDark: '#A84623',
+            moss: '#2D5A27',
+            mossLight: '#EBF3EA',
+            charcoal: '#1E293B',
+            sand: '#E6DEC8',
+            gold: '#D97706'
+          },
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Be Vietnam Pro"', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -5px rgba(30, 41, 59, 0.06)',
+            'card': '0 4px 20px -2px rgba(200, 90, 50, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #1E293B;
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF7F2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D6CCB8;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C85A32;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .map-pin-pulse {
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.85); opacity: 0.8; }
+      70% { transform: scale(1.6); opacity: 0; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-terracotta/20 selection:text-terracotta pb-20 md:pb-0">
+
+  <!-- ==================== 1. HEADER / THANH ĐIỀU HƯỚNG ==================== -->
+  <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-sand/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        
+        <!-- Logo Thương hiệu LÀNGO -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-gradient-to-br from-terracotta to-terracottaDark flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform relative overflow-hidden">
+            <!-- Biểu tượng cách điệu mái đình Việt & bình gốm thủ công -->
+            <svg class="w-6 h-6" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 11.5C7.5 11.5 11 8.5 14 5C17 8.5 20.5 11.5 25 11.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.5 13.5H17.5L16.8 15.8C18.6 17.1 19.3 19.6 18.2 21.8C17.5 23.1 16.1 23.8 14.6 23.8H13.4C11.9 23.8 10.5 23.1 9.8 21.8C8.7 19.6 9.4 17.1 11.2 15.8L10.5 13.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-display font-extrabold text-xl md:text-2xl tracking-wider text-charcoal leading-none">LÀN<span class="text-terracotta">GO</span></span>
+              <span class="hidden sm:inline-block text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-mossLight text-moss border border-moss/20">OCOP Pass</span>
+            </div>
+            <p class="text-[11px] font-medium text-slate-500 hidden sm:block mt-0.5">Hành trình Làng nghề & OCOP Việt Nam</p>
+          </div>
+        </a>
+
+        <!-- Menu điều hướng Desktop -->
+        <nav class="hidden lg:flex items-center gap-1 bg-creamDark/80 p-1.5 rounded-full border border-sand/60">
+          <a href="#quy-trinh" class="px-3.5 py-2 rounded-full text-xs font-bold text-charcoal hover:bg-white hover:text-terracotta transition-all">Quy trình 6 bước</a>
+          <a href="#kham-pha" class="px-3.5 py-2 rounded-full text-xs font-bold text-charcoal hover:bg-white hover:text-terracotta transition-all">1. Bản đồ Làng nghề</a>
+          <a href="#ho-nghe-nhan" class="px-3.5 py-2 rounded-full text-xs font-bold text-charcoal hover:bg-white hover:text-terracotta transition-all">2. Hộ Nghệ nhân</a>
+          <a href="#ai-itinerary" class="px-3.5 py-2 rounded-full text-xs font-bold text-charcoal hover:bg-white hover:text-terracotta transition-all flex items-center gap-1">
+            <i data-lucide="route" class="w-3.5 h-3.5 text-terracotta"></i> 3. Trợ lý Lộ trình
+          </a>
+          <a href="#workshop" class="px-3.5 py-2 rounded-full text-xs font-bold text-charcoal hover:bg-white hover:text-terracotta transition-all">4. Workshop</a>
+          <a href="#gian-hang" class="px-3.5 py-2 rounded-full text-xs font-bold text-charcoal hover:bg-white hover:text-terracotta transition-all">5. Gian hàng OCOP</a>
+        </nav>
+
+        <!-- Actions: Chuyển chế độ Khách / Nghệ nhân, Vé & Giỏ hàng -->
+        <div class="flex items-center gap-2">
+          <button onclick="toggleMerchantPortal()" id="roleSwitchBtn" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold border border-sand bg-white text-charcoal hover:border-terracotta transition-all" title="Xem thử giao diện quản lý dành cho Hộ sản xuất / Nghệ nhân">
+            <i data-lucide="store" class="w-3.5 h-3.5 text-terracotta"></i>
+            <span id="roleSwitchLabel">Kênh Nghệ nhân</span>
+          </button>
+
+          <button onclick="openMyBookingsModal()" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold text-moss bg-mossLight hover:bg-moss hover:text-white transition-all">
+            <i data-lucide="ticket" class="w-3.5 h-3.5"></i>
+            <span>LÀNGO Pass (<span id="bookingCountBadge">0</span>)</span>
+          </button>
+
+          <button onclick="toggleCartDrawer()" class="relative flex items-center gap-2 px-3.5 py-2 rounded-full bg-charcoal text-white hover:bg-terracotta transition-all shadow-sm">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span class="text-xs font-bold hidden sm:inline">Giỏ OCOP</span>
+            <span id="cartCountBadge" class="inline-flex items-center justify-center w-5 h-5 text-[11px] font-bold bg-terracotta text-white rounded-full border border-white/20">2</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== PORTAL XEM THỬ DÀNH CHO HỘ NGHỆ NHÂN (LÀNGO MERCHANT PORTAL) ==================== -->
+  <div id="merchantPortalBanner" class="hidden bg-charcoal text-white border-b border-slate-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-700">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-terracotta text-[11px] font-bold uppercase">Kênh Hộ Nghệ nhân LÀNGO • Merchant Portal</span>
+          <h2 class="font-display font-extrabold text-xl mt-1">Bảng điều khiển Xưởng Gốm Nghệ Nhân Vũ Đức Thắng (Bát Tràng)</h2>
+          <p class="text-xs text-slate-400">Minh bạch phí nền tảng: <strong>10%</strong> cho lịch đặt Workshop & <strong>5%</strong> cho đơn hàng sản phẩm OCOP</p>
+        </div>
+        <button onclick="toggleMerchantPortal()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold self-start md:self-auto">
+          ← Quay lại giao diện Du khách LÀNGO
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
+        <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700">
+          <span class="text-xs text-slate-400">Doanh thu thực nhận tháng này (90–95%)</span>
+          <div class="font-display font-extrabold text-2xl text-emerald-400 mt-1">29.850.000đ</div>
+          <span class="text-[11px] text-emerald-300 mt-1 block">Phí duy trì nền tảng chỉ 5% – 10%</span>
+        </div>
+        <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700">
+          <span class="text-xs text-slate-400">Khách đặt Workshop LÀNGO hôm nay</span>
+          <div class="font-display font-extrabold text-2xl text-white mt-1">14 khách <span class="text-xs font-normal text-amber-400">(3 ca)</span></div>
+          <span class="text-[11px] text-slate-300 mt-1 block">Ca kế tiếp: 14:30 (4 khách)</span>
+        </div>
+        <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700">
+          <span class="text-xs text-slate-400">Đơn OCOP Express chờ lấy</span>
+          <div class="font-display font-extrabold text-2xl text-terracotta mt-1">5 kiện hàng</div>
+          <span class="text-[11px] text-slate-300 mt-1 block">Bưu tá GHN / Viettel Post lấy lúc 16:00</span>
+        </div>
+        <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700 flex flex-col justify-between">
+          <span class="text-xs text-slate-400">Trạng thái mở cửa xưởng trên LÀNGO</span>
+          <div class="flex items-center justify-between mt-2">
+            <span class="text-sm font-bold text-emerald-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Đang đón khách</span>
+            <button onclick="showToast('Đã cập nhật trạng thái xưởng', 'Xưởng của bạn đang hiển thị sẵn sàng đón khách trên bản đồ LÀNGO.')" class="px-2.5 py-1 rounded-lg bg-terracotta text-[11px] font-bold">Cập nhật</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. HERO SECTION & BỘ LỌC NHANH ==================== -->
+  <section class="relative pt-8 pb-10 md:pt-12 md:pb-14 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-sand shadow-2xs text-xs font-bold text-terracotta mb-4">
+          <span class="w-2 h-2 rounded-full bg-terracotta animate-pulse"></span>
+          <span>LÀNGO • Nền tảng Du lịch Làng nghề & Thương mại OCOP</span>
+        </div>
+        <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-charcoal tracking-tight leading-tight">
+          Trốn phố về làng nghề – <span class="text-terracotta">Trải nghiệm bản địa</span>, giao hàng tận tay
+        </h1>
+        <p class="text-sm sm:text-base text-slate-600 mt-3.5 leading-relaxed max-w-2xl mx-auto">
+          Khám phá chiều sâu văn hóa 6 làng nghề trọng điểm Hà Nội & miền Trung, đặt lịch thực hành 1-1 cùng nghệ nhân giá gốc tại xưởng và gửi quà OCOP thẳng về khách sạn hoặc sân bay.
+        </p>
+
+        <!-- Primary CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-6">
+          <a href="#ai-itinerary" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-terracotta hover:bg-terracottaDark text-white font-bold text-base shadow-lg shadow-terracotta/25 flex items-center justify-center gap-2.5 transition-all hover:-translate-y-0.5">
+            <i data-lucide="route" class="w-5 h-5"></i>
+            <span>Ghép lộ trình với Trợ lý LÀNGO</span>
+          </a>
+          <a href="#gian-hang" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white hover:bg-creamDark text-charcoal border border-sand font-bold text-base shadow-soft flex items-center justify-center gap-2.5 transition-all hover:-translate-y-0.5">
+            <i data-lucide="store" class="w-5 h-5 text-moss"></i>
+            <span>Khám phá gian hàng OCOP</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Thanh Tìm Kiếm & Bộ Lọc Nhanh -->
+      <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-soft border border-sand/80 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <!-- Lọc Cụm Khu vực -->
+          <div class="bg-cream rounded-2xl p-3.5 border border-sand/60">
+            <label class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-terracotta"></i> Cụm khu vực
+            </label>
+            <select id="filterRegion" onchange="applyVillageFilters()" class="w-full bg-transparent font-bold text-sm text-charcoal focus:outline-none cursor-pointer">
+              <option value="all">Tất cả điểm đến (7 cụm làng)</option>
+              <option value="hanoi">Hà Nội (6 làng nghề trọng điểm)</option>
+              <option value="central">Miền Trung (Thanh Hà – Trà Quế)</option>
+            </select>
+          </div>
+
+          <!-- Lọc Quỹ thời gian -->
+          <div class="bg-cream rounded-2xl p-3.5 border border-sand/60">
+            <label class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-moss"></i> Quỹ thời gian
+            </label>
+            <select id="filterDuration" onchange="applyVillageFilters()" class="w-full bg-transparent font-bold text-sm text-charcoal focus:outline-none cursor-pointer">
+              <option value="all">Mọi quỹ thời gian</option>
+              <option value="half">Nửa ngày (3 – 4 tiếng)</option>
+              <option value="full">Trọn 1 ngày (6 – 8 tiếng)</option>
+            </select>
+          </div>
+
+          <!-- Lọc Ngân sách -->
+          <div class="bg-cream rounded-2xl p-3.5 border border-sand/60">
+            <label class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              <i data-lucide="wallet" class="w-3.5 h-3.5 text-terracotta"></i> Ngân sách dự kiến
+            </label>
+            <select id="filterBudget" onchange="applyVillageFilters()" class="w-full bg-transparent font-bold text-sm text-charcoal focus:outline-none cursor-pointer">
+              <option value="all">Tất cả mức chi phí</option>
+              <option value="low">Dưới 200.000đ</option>
+              <option value="mid">200.000đ – 500.000đ</option>
+              <option value="high">500.000đ – 1.000.000đ</option>
+            </select>
+          </div>
+
+          <!-- Lọc Loại hình -->
+          <div class="bg-cream rounded-2xl p-3.5 border border-sand/60">
+            <label class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+              <i data-lucide="palette" class="w-3.5 h-3.5 text-moss"></i> Loại hình thủ công
+            </label>
+            <select id="filterCategory" onchange="applyVillageFilters()" class="w-full bg-transparent font-bold text-sm text-charcoal focus:outline-none cursor-pointer">
+              <option value="all">Tất cả loại hình</option>
+              <option value="pottery">Gốm sứ truyền thống</option>
+              <option value="silk">Dệt lụa tơ tằm</option>
+              <option value="bamboo_lacquer">Mây tre đan & Sơn mài</option>
+              <option value="folk_incense">Tăm hương & Nặn tò he</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Quick Tags (Pill Filters) -->
+        <div class="flex items-center gap-2 mt-4 pt-3 border-t border-sand/50 overflow-x-auto no-scrollbar">
+          <span class="text-xs font-semibold text-slate-400 shrink-0">Gợi ý nhanh:</span>
+          <button onclick="quickFilterTag('hanoi', 'all')" class="px-3 py-1 rounded-full text-xs font-semibold bg-creamDark hover:bg-terracotta hover:text-white text-charcoal transition-colors shrink-0">📍 6 Làng nghề Hà Nội</button>
+          <button onclick="quickFilterCategory('pottery')" class="px-3 py-1 rounded-full text-xs font-semibold bg-creamDark hover:bg-terracotta hover:text-white text-charcoal transition-colors shrink-0">🏺 Gốm Bát Tràng & Thanh Hà</button>
+          <button onclick="quickFilterCategory('bamboo_lacquer')" class="px-3 py-1 rounded-full text-xs font-semibold bg-creamDark hover:bg-terracotta hover:text-white text-charcoal transition-colors shrink-0">🧺 Mây tre Phú Vinh & Sơn mài Hạ Thái</button>
+          <button onclick="quickFilterCategory('folk_incense')" class="px-3 py-1 rounded-full text-xs font-semibold bg-creamDark hover:bg-terracotta hover:text-white text-charcoal transition-colors shrink-0">🪔 Tăm hương Quảng Phú Cầu & Tò he Xuân La</button>
+          <button onclick="resetFilters()" class="ml-auto text-xs font-bold text-terracotta hover:underline shrink-0">Đặt lại</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== THANH QUY TRÌNH 6 BƯỚC XUYÊN SUỐT LÀNGO ==================== -->
+  <section id="quy-trinh" class="py-6 bg-white border-y border-sand/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-terracotta">Hành trình trải nghiệm liền mạch O2O cùng LÀNGO</span>
+        <span class="text-xs text-slate-500 hidden sm:inline">Nhấp vào từng bước để chuyển nhanh tới phân hệ</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+        <a href="#kham-pha" class="p-3 rounded-2xl bg-cream hover:bg-terracotta/10 border border-sand transition-all group">
+          <span class="text-[10px] font-extrabold text-terracotta uppercase">Bước 1</span>
+          <h4 class="font-bold text-xs text-charcoal group-hover:text-terracotta mt-0.5">Mở bản đồ số</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5">Định vị cụm làng nghề</p>
+        </a>
+        <a href="#kham-pha" class="p-3 rounded-2xl bg-cream hover:bg-terracotta/10 border border-sand transition-all group">
+          <span class="text-[10px] font-extrabold text-terracotta uppercase">Bước 2</span>
+          <h4 class="font-bold text-xs text-charcoal group-hover:text-terracotta mt-0.5">Chọn làng nghề</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5">Lịch sử & quy mô hộ SX</p>
+        </a>
+        <a href="#ho-nghe-nhan" class="p-3 rounded-2xl bg-cream hover:bg-terracotta/10 border border-sand transition-all group">
+          <span class="text-[10px] font-extrabold text-moss uppercase">Bước 3</span>
+          <h4 class="font-bold text-xs text-charcoal group-hover:text-moss mt-0.5">Xem Hộ Nghệ nhân</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5">Chọn xưởng mở cửa</p>
+        </a>
+        <a href="#ai-itinerary" class="p-3 rounded-2xl bg-cream hover:bg-terracotta/10 border border-sand transition-all group">
+          <span class="text-[10px] font-extrabold text-moss uppercase">Bước 4</span>
+          <h4 class="font-bold text-xs text-charcoal group-hover:text-moss mt-0.5">Ghép lộ trình</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5">Tối ưu giờ & ngân sách</p>
+        </a>
+        <a href="#workshop" class="p-3 rounded-2xl bg-cream hover:bg-terracotta/10 border border-sand transition-all group">
+          <span class="text-[10px] font-extrabold text-amber-700 uppercase">Bước 5</span>
+          <h4 class="font-bold text-xs text-charcoal group-hover:text-amber-700 mt-0.5">Đặt lịch Workshop</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5">Giá gốc tại xưởng</p>
+        </a>
+        <a href="#gian-hang" class="p-3 rounded-2xl bg-cream hover:bg-terracotta/10 border border-sand transition-all group">
+          <span class="text-[10px] font-extrabold text-amber-700 uppercase">Bước 6</span>
+          <h4 class="font-bold text-xs text-charcoal group-hover:text-amber-700 mt-0.5">Mua OCOP Express</h4>
+          <p class="text-[11px] text-slate-500 mt-0.5">Giao tận khách sạn/sân bay</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. BƯỚC 1 & 2: BẢN ĐỒ SỐ & 6 LÀNG NGHỀ TRỌNG ĐIỂM ==================== -->
+  <section id="kham-pha" class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Bước 1 & Bước 2 • Bản đồ Di sản Sống LÀNGO</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-charcoal mt-1">6 Làng nghề Trọng điểm Hà Nội & Tuyến Miền Trung</h2>
+        </div>
+        <p class="text-sm text-slate-600 max-w-md">
+          Nhấp vào từng làng nghề hoặc ghim bản đồ để xem quy mô hộ sản xuất, trạm ký gửi hành lý và danh sách các xưởng nghệ nhân bên trong.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Cột trái: Danh sách thẻ Làng nghề (7 cột) -->
+        <div class="lg:col-span-7">
+          <div id="villageCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Render bằng JavaScript -->
+          </div>
+          
+          <div id="emptyVillagesState" class="hidden bg-white rounded-3xl p-10 text-center border border-sand">
+            <div class="w-14 h-14 rounded-2xl bg-creamDark text-terracotta flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="compass" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-bold text-lg text-charcoal">Chưa tìm thấy làng nghề khớp bộ lọc</h3>
+            <p class="text-sm text-slate-500 mt-1 mb-4">Thử mở rộng quỹ thời gian hoặc đặt lại bộ lọc để xem tất cả điểm đến trên LÀNGO.</p>
+            <button onclick="resetFilters()" class="px-5 py-2.5 rounded-xl bg-terracotta text-white text-sm font-bold">Xem tất cả làng nghề</button>
+          </div>
+        </div>
+
+        <!-- Cột phải: Bản đồ số tương tác (5 cột - Sticky trên Desktop) -->
+        <div class="lg:col-span-5 lg:sticky lg:top-24">
+          <div class="bg-white rounded-3xl p-4 sm:p-5 border border-sand shadow-soft">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-moss"></span>
+                <h3 class="font-bold text-sm text-charcoal">Bản đồ 6 Làng nghề Trọng điểm Hà Nội</h3>
+              </div>
+              <span class="text-xs font-medium text-slate-500 bg-cream px-2.5 py-1 rounded-full">Bấm ghim để xem</span>
+            </div>
+
+            <!-- Khung đồ họa Bản đồ SVG cách điệu hiển thị đủ 6 điểm Hà Nội + Miền Trung -->
+            <div class="relative w-full h-80 rounded-2xl bg-[#EAE4D7] overflow-hidden border border-sand/80 select-none">
+              <svg class="w-full h-full" viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="500" height="350" fill="#EFECE4"/>
+                <circle cx="380" cy="110" r="95" fill="#DFEAD9" opacity="0.7"/>
+                <circle cx="110" cy="240" r="110" fill="#DFEAD9" opacity="0.7"/>
+                <circle cx="340" cy="260" r="85" fill="#E3DEC9" opacity="0.8"/>
+                <!-- Sông Hồng & Sông Đáy -->
+                <path d="M180 -10 C 210 80, 270 120, 310 200 C 335 265, 380 310, 440 360" stroke="#B8D4E3" stroke-width="22" stroke-linecap="round"/>
+                <path d="M140 120 C 120 190, 110 260, 130 360" stroke="#C5DCE8" stroke-width="10" stroke-linecap="round"/>
+                
+                <!-- Các tuyến kết nối từ Trung tâm Hà Nội -->
+                <path d="M235 125 L 345 135" stroke="#C85A32" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M235 125 L 155 150" stroke="#C85A32" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M235 125 L 95 195" stroke="#C85A32" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M235 125 L 265 215" stroke="#C85A32" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M235 125 L 165 265" stroke="#C85A32" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M235 125 L 285 290" stroke="#C85A32" stroke-width="1.5" stroke-dasharray="4 4"/>
+                
+                <!-- Điểm Trung tâm Hà Nội -->
+                <g transform="translate(235, 125)">
+                  <circle r="9" fill="#1E293B"/>
+                  <circle r="3.5" fill="#FAF7F2"/>
+                  <rect x="-36" y="-26" width="72" height="17" rx="8.5" fill="#1E293B"/>
+                  <text x="0" y="-14.5" text-anchor="middle" fill="#FFFFFF" font-size="8.5" font-weight="bold" font-family="sans-serif">Trung tâm HN</text>
+                </g>
+              </svg>
+
+              <!-- Pin 1: Bát Tràng (Gia Lâm) -->
+              <button onclick="selectMapPin('bat-trang')" id="pin-bat-trang" class="map-pin-btn absolute top-[38%] left-[70%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none">
+                <div class="relative flex items-center gap-1 px-2.5 py-1 rounded-full bg-terracotta text-white text-[11px] font-bold shadow-md border-2 border-white transition-transform">
+                  <span>🏺 Bát Tràng</span>
+                </div>
+              </button>
+
+              <!-- Pin 2: Vạn Phúc (Hà Đông) -->
+              <button onclick="selectMapPin('van-phuc')" id="pin-van-phuc" class="map-pin-btn absolute top-[43%] left-[31%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none">
+                <div class="relative flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-charcoal text-[11px] font-bold shadow-md border-2 border-terracotta transition-transform">
+                  <span>🧣 Vạn Phúc</span>
+                </div>
+              </button>
+
+              <!-- Pin 3: Phú Vinh (Chương Mỹ) -->
+              <button onclick="selectMapPin('phu-vinh')" id="pin-phu-vinh" class="map-pin-btn absolute top-[56%] left-[19%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none">
+                <div class="relative flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-charcoal text-[11px] font-bold shadow-md border-2 border-moss transition-transform">
+                  <span>🧺 Phú Vinh</span>
+                </div>
+              </button>
+
+              <!-- Pin 4: Hạ Thái (Thường Tín) -->
+              <button onclick="selectMapPin('ha-thai')" id="pin-ha-thai" class="map-pin-btn absolute top-[62%] left-[55%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none">
+                <div class="relative flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-charcoal text-[11px] font-bold shadow-md border-2 border-moss transition-transform">
+                  <span>🎨 Hạ Thái</span>
+                </div>
+              </button>
+
+              <!-- Pin 5: Quảng Phú Cầu (Ứng Hòa) -->
+              <button onclick="selectMapPin('quang-phu-cau')" id="pin-quang-phu-cau" class="map-pin-btn absolute top-[76%] left-[33%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none">
+                <div class="relative flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-charcoal text-[11px] font-bold shadow-md border-2 border-terracotta transition-transform">
+                  <span>🪔 Quảng Phú Cầu</span>
+                </div>
+              </button>
+
+              <!-- Pin 6: Xuân La (Phú Xuyên) -->
+              <button onclick="selectMapPin('xuan-la')" id="pin-xuan-la" class="map-pin-btn absolute top-[84%] left-[60%] -translate-x-1/2 -translate-y-1/2 group focus:outline-none">
+                <div class="relative flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-charcoal text-[11px] font-bold shadow-md border-2 border-moss transition-transform">
+                  <span>🧸 Xuân La</span>
+                </div>
+              </button>
+
+              <!-- Pin 7: Tuyến Miền Trung -->
+              <button onclick="selectMapPin('thanh-ha')" id="pin-thanh-ha" class="map-pin-btn absolute top-3 right-3 group focus:outline-none">
+                <div class="relative flex items-center gap-1 px-2.5 py-1 rounded-full bg-moss text-white text-[11px] font-bold shadow-md border border-white/60 transition-transform">
+                  <span>✈️ Hội An (Thanh Hà)</span>
+                </div>
+              </button>
+            </div>
+
+            <!-- Thẻ chi tiết điểm đang chọn trên bản đồ -->
+            <div id="mapSelectedDetail" class="mt-4 p-4 rounded-2xl bg-cream border border-sand/80">
+              <!-- Nội dung cập nhật động qua JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3.5. BƯỚC 3: CƠ SỞ SẢN XUẤT & HỘ NGHỆ NHÂN BÊN TRONG LÀNG NGHỀ ==================== -->
+  <section id="ho-nghe-nhan" class="py-12 md:py-16 bg-white border-y border-sand/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-moss">Bước 3 • Khám phá Chiều sâu Xưởng Thủ công</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-charcoal mt-1">
+            Các Cơ sở Sản xuất & Hộ Nghệ nhân tại <span id="activeVillageArtisanTitle" class="text-terracotta">Làng Gốm Bát Tràng</span>
+          </h2>
+          <p class="text-sm text-slate-600 mt-1 max-w-2xl">
+            Thay vì đi tự phát dễ bị "chặt chém" hoặc lạc đường, hãy chọn trực tiếp từng hộ nghệ nhân mở cửa đón khách trên LÀNGO, xem câu chuyện giữ nghề và thêm vào lộ trình của bạn.
+          </p>
+        </div>
+
+        <!-- Bộ chọn nhanh Làng nghề để xem Hộ nghệ nhân -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1" id="villageArtisanTabs">
+          <!-- Render động các nút chuyển làng nghề -->
+        </div>
+      </div>
+
+      <!-- Danh sách thẻ Cơ sở sản xuất / Hộ nghệ nhân -->
+      <div id="artisanSpotsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Render động qua JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 4. BƯỚC 4: TRỢ LÝ LỘ TRÌNH LÀNGO & AI ITINERARY BUILDER ==================== -->
+  <section id="ai-itinerary" class="py-12 md:py-16 bg-creamDark/60 border-b border-sand/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta/10 text-terracotta text-xs font-bold mb-2">
+          <i data-lucide="route" class="w-3.5 h-3.5"></i> Bước 4 • Trợ lý Lộ trình LÀNGO (Route Builder)
+        </div>
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-charcoal">Tùy chỉnh Lộ trình Cá nhân hóa & Trạm tiện ích</h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-1">
+          Kết hợp các cơ sở nghệ nhân bạn đã chọn cùng quỹ thời gian, ngân sách thực tế — <strong>Trợ lý Lộ trình LÀNGO</strong> tự động sắp xếp tuyến đường tối ưu và đính kèm mã QR ưu đãi Việt phục / Homestay đối tác.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Form điều khiển thông số (5 cột) -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 border border-sand shadow-soft space-y-4">
+          <h3 class="font-bold text-lg text-charcoal flex items-center gap-2">
+            <span class="w-7 h-7 rounded-xl bg-terracotta text-white flex items-center justify-center text-sm font-bold">1</span>
+            Thông số chuyến đi cùng LÀNGO
+          </h3>
+
+          <!-- Điểm xuất phát -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Điểm xuất phát</label>
+            <div class="relative">
+              <i data-lucide="navigation" class="w-4 h-4 text-terracotta absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+              <select id="aiStartPoint" class="w-full pl-10 pr-4 py-3 rounded-2xl bg-cream border border-sand text-sm font-semibold text-charcoal focus:outline-none focus:border-terracotta">
+                <option value="hoan-kiem">Hồ Hoàn Kiếm / Phố Cổ, Hà Nội</option>
+                <option value="cau-giay">Cầu Giấy / Mỹ Đình, Hà Nội</option>
+                <option value="ha-dong">Hà Đông, Hà Nội (Gần Vạn Phúc / Phú Vinh)</option>
+                <option value="hoi-an">Phố cổ Hội An (Tuyến Thanh Hà – Trà Quế)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Thời gian rảnh -->
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Quỹ thời gian rảnh</label>
+            <div class="grid grid-cols-2 gap-2.5">
+              <button type="button" onclick="selectAiDuration('4h', this)" class="ai-dur-btn active py-2.5 px-3 rounded-xl border-2 border-terracotta bg-terracotta/5 text-terracotta font-bold text-sm text-center transition-all">
+                Nửa ngày (3 – 4 tiếng)
+              </button>
+              <button type="button" onclick="selectAiDuration('8h', this)" class="ai-dur-btn py-2.5 px-3 rounded-xl border border-sand bg-cream text-slate-600 font-semibold text-sm text-center hover:border-terracotta transition-all">
+                Trọn 1 ngày (6 – 8 tiếng)
+              </button>
+            </div>
+          </div>
+
+          <!-- Ngân sách dự kiến -->
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Ngân sách / người</label>
+              <span id="aiBudgetDisplay" class="text-sm font-extrabold text-terracotta">350.000đ</span>
+            </div>
+            <input type="range" id="aiBudgetRange" min="150000" max="1000000" step="50000" value="350000" oninput="updateBudgetLabel(this.value)" class="w-full accent-terracotta cursor-pointer">
+            <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+              <span>Dưới 200k</span>
+              <span>200k – 500k</span>
+              <span>500k – 1.000k</span>
+            </div>
+          </div>
+
+          <!-- Danh sách điểm dừng đang được ghép trong lộ trình -->
+          <div class="bg-cream rounded-2xl p-3.5 border border-sand/80">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-charcoal">Các cơ sở nghệ nhân đã chọn (<span id="selectedStopsCount">2</span>):</span>
+              <a href="#ho-nghe-nhan" class="text-[11px] font-bold text-terracotta hover:underline">+ Thêm xưởng</a>
+            </div>
+            <div id="selectedStopsPills" class="flex flex-wrap gap-1.5">
+              <!-- Render động các điểm đã chọn -->
+            </div>
+          </div>
+
+          <button onclick="generateAiItinerary()" class="w-full py-3.5 px-6 rounded-2xl bg-charcoal hover:bg-terracotta text-white font-bold text-sm shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer">
+            <i data-lucide="wand-2" class="w-4 h-4"></i>
+            <span>Tính toán & Tối ưu Lộ trình LÀNGO</span>
+          </button>
+        </div>
+
+        <!-- Kết quả Lịch trình chi tiết (7 cột) -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 border border-sand shadow-soft flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-5 border-b border-sand/70">
+              <div>
+                <span class="text-xs font-bold text-moss uppercase tracking-wider">Đề xuất bởi Trợ lý Lộ trình LÀNGO</span>
+                <h3 id="itineraryTitle" class="font-display font-extrabold text-xl text-charcoal mt-0.5">Hành trình Gốm Bát Tràng & Xưởng Nghệ nhân Di sản</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span id="itineraryTotalCost" class="px-3 py-1.5 rounded-xl bg-terracotta/10 text-terracotta font-extrabold text-sm">Ước tính: 320.000đ</span>
+                <span id="itineraryDistance" class="px-3 py-1.5 rounded-xl bg-cream text-slate-700 font-bold text-xs border border-sand">~14 km</span>
+              </div>
+            </div>
+
+            <!-- Timeline các chặng -->
+            <div id="itineraryTimeline" class="space-y-4 relative before:content-[''] before:absolute before:left-[19px] before:top-3 before:bottom-3 before:w-0.5 before:bg-sand">
+              <!-- Render động qua JS -->
+            </div>
+          </div>
+
+          <!-- Footer của Lịch trình: Gợi ý đối tác B2B2C Việt phục & Homestay kèm mã QR -->
+          <div class="mt-6 pt-4 border-t border-sand/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-cream rounded-2xl p-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-mossLight text-moss flex items-center justify-center shrink-0">
+                <i data-lucide="qr-code" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-moss">LÀNGO Pass • Ưu đãi Đối tác B2B2C (Mã: LANGO20)</p>
+                <p id="itineraryPartnerStay" class="text-xs sm:text-sm font-bold text-charcoal">Giảm 20% thuê Việt phục cổng làng & Ký gửi hành lý miễn phí</p>
+              </div>
+            </div>
+            <button onclick="bookFromItinerary()" class="px-4 py-2.5 rounded-xl bg-terracotta hover:bg-terracottaDark text-white text-xs font-bold shrink-0 transition-colors">
+              Đặt Workshop trên tuyến
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. BƯỚC 5: ĐẶT LỊCH WORKSHOP CÙNG NGHỆ NHÂN ==================== -->
+  <section id="workshop" class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-moss">Bước 5 • Trải nghiệm Thực hành Trực tiếp tại Xưởng</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-charcoal mt-1">Đặt lịch Workshop cùng Nghệ nhân</h2>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-terracotta bg-terracotta/10 px-3.5 py-2 rounded-full">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>Giá gốc niêm yết tại xưởng • Miễn phí hủy trước 24h (Mã LÀNGO Pass 15%: <strong>LANGO15</strong>)</span>
+        </div>
+      </div>
+
+      <!-- Grid các thẻ Workshop -->
+      <div id="workshopGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Render động qua JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. BƯỚC 6: GIAN HÀNG SỐ OCOP & OCOP EXPRESS ==================== -->
+  <section id="gian-hang" class="py-12 md:py-16 bg-white border-y border-sand/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Bước 6 • Marketplace Chuẩn Hóa & Giao Nhận Thông Minh</span>
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-charcoal mt-1">Gian hàng Số Sản phẩm OCOP 4–5 Sao</h2>
+          <p class="text-sm text-slate-600 mt-1 max-w-xl">
+            Sản phẩm gắn liền với hộ nghệ nhân chế tác trên LÀNGO, đầy đủ nhãn minh bạch thành phần & cảnh báo dị ứng. Không cần tay xách nách mang!
+          </p>
+        </div>
+
+        <!-- Hộp nổi bật OCOP Express -->
+        <div class="bg-cream rounded-3xl p-4 sm:p-5 border border-terracotta/30 flex items-center gap-4 max-w-lg shadow-xs">
+          <div class="w-12 h-12 rounded-2xl bg-terracotta text-white flex items-center justify-center shrink-0">
+            <i data-lucide="package-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-bold text-sm text-charcoal">Giải pháp OCOP Express (GHN / Viettel Post)</h4>
+              <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-moss text-white">Chống sốc</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+              Nhận ngay tại xưởng hoặc giao hỏa tốc trong ngày về <strong>Khách sạn / Homestay</strong>, đóng gói thùng xốp gửi thẳng ra <strong>Sân bay Nội Bài / Đà Nẵng</strong> hoặc ship về nhà.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs cho Sản phẩm OCOP -->
+      <div class="flex items-center gap-2 mb-6 overflow-x-auto no-scrollbar pb-1">
+        <button onclick="filterProducts('all', this)" class="prod-tab-btn active px-4 py-2 rounded-full text-xs font-bold bg-charcoal text-white transition-all shrink-0">Tất cả sản phẩm (6)</button>
+        <button onclick="filterProducts('craft', this)" class="prod-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-cream text-slate-700 hover:bg-creamDark border border-sand transition-all shrink-0">🏺 Gốm sứ, Sơn mài & Mây tre</button>
+        <button onclick="filterProducts('textile', this)" class="prod-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-cream text-slate-700 hover:bg-creamDark border border-sand transition-all shrink-0">🧣 Lụa tơ tằm Vạn Phúc</button>
+        <button onclick="filterProducts('food', this)" class="prod-tab-btn px-4 py-2 rounded-full text-xs font-bold bg-cream text-slate-700 hover:bg-creamDark border border-sand transition-all shrink-0">🍵 Trà & Đặc sản OCOP (Có nhãn dị ứng)</button>
+      </div>
+
+      <!-- Grid Sản phẩm OCOP -->
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Render động qua JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. HỆ SINH THÁI O2O & GIÁ TRỊ CỘNG ĐỒNG LÀNGO ==================== -->
+  <section id="he-sinh-thai" class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-moss">Hệ sinh thái O2O (Online-to-Offline) LÀNGO</span>
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-charcoal mt-1">Tiện ích Bản địa & Tác động Bền vững</h2>
+        <p class="text-sm text-slate-600 mt-2">
+          Kết nối liền mạch từ nền tảng số đến từng trạm dừng chân đầu làng, mang lại trải nghiệm trọn vẹn cho du khách và sinh kế bền vững cho nghệ nhân.
+        </p>
+      </div>
+
+      <!-- 3 Cột Tiện ích tại điểm đến O2O -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <!-- Tiện ích 1 -->
+        <div class="bg-white rounded-3xl p-6 border border-sand shadow-soft hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center mb-4">
+            <i data-lucide="shirt" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-bold text-lg text-charcoal mb-2">Thuê Việt phục & Trang phục Làng nghề</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Liên kết các tiệm cổ phục ngay cổng làng Bát Tràng, Vạn Phúc, Hội An. Xuất trình <strong>LÀNGO Pass</strong> để nhận ưu đãi thuê áo dài, áo tấc chụp ảnh check-in.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-terracotta">
+            Từ 120.000đ / buổi <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+
+        <!-- Tiện ích 2 -->
+        <div class="bg-white rounded-3xl p-6 border border-sand shadow-soft hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-2xl bg-mossLight text-moss flex items-center justify-center mb-4">
+            <i data-lucide="luggage" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-bold text-lg text-charcoal mb-2">Trạm Dừng chân & Ký gửi Hành lý</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Hệ thống trạm thông tin du lịch LÀNGO tại đầu làng hỗ trợ gửi balo/vali miễn phí cho khách tự túc, sạc pin, bản đồ giấy và kết nối trực tiếp với nghệ nhân.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-moss">
+            Miễn phí cho khách đặt trên LÀNGO <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+
+        <!-- Tiện ích 3 -->
+        <div class="bg-white rounded-3xl p-6 border border-sand shadow-soft hover:-translate-y-1 transition-transform">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-700 flex items-center justify-center mb-4">
+            <i data-lucide="bed-double" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-bold text-lg text-charcoal mb-2">Mạng lưới Homestay & B&B Bản địa</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Lưu trú tại những ngôi nhà cổ hoặc không gian xưởng gốm cải tạo. Tích hợp sẵn dịch vụ nhận hàng OCOP Express ngay tại quầy lễ tân homestay.
+          </p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-700">
+            Hơn 35+ đối tác lưu trú liên kết <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Banner Cam kết Giá trị Cộng đồng & ESG -->
+      <div class="bg-moss text-white rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+        <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+          <svg class="w-64 h-64" viewBox="0 0 200 200" fill="currentColor">
+            <path d="M100 10C50 10 10 50 10 100s40 90 90 90 90-40 90-90S150 10 100 10zm0 160c-38.6 0-70-31.4-70-70s31.4-70 70-70 70 31.4 70 70-31.4 70-70 70z"/>
+          </svg>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-5">
+            <span class="inline-block px-3 py-1 rounded-full bg-white/15 text-xs font-bold uppercase tracking-wider mb-3">Tác động Xã hội & Bền vững</span>
+            <h3 class="font-display font-extrabold text-2xl sm:text-3xl leading-snug">
+              Mỗi chuyến đi cùng LÀNGO là một nhịp cầu giữ lửa di sản Việt
+            </h3>
+            <p class="text-sm text-white/85 mt-3 leading-relaxed">
+              LÀNGO cam kết minh bạch chuỗi giá trị với mức phí nền tảng tối ưu (5% sản phẩm OCOP, 10% workshop), giúp các hộ sản xuất nhỏ lẻ tiếp cận trực tiếp du khách trẻ mà không qua trung gian ép giá.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-4 border border-white/15">
+              <div class="text-2xl mb-2">🏛️</div>
+              <h4 class="font-bold text-sm mb-1">Bảo tồn Di sản</h4>
+              <p class="text-xs text-white/80 leading-relaxed">Số hóa câu chuyện nghệ nhân, truyền cảm hứng yêu nghề thủ công cho thế hệ Gen Z.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-4 border border-white/15">
+              <div class="text-2xl mb-2">🤝</div>
+              <h4 class="font-bold text-sm mb-1">Thương mại Công bằng</h4>
+              <p class="text-xs text-white/80 leading-relaxed">90%–95% giá trị đơn hàng OCOP và vé Workshop được chuyển trực tiếp tới hộ nghệ nhân.</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-4 border border-white/15">
+              <div class="text-2xl mb-2">🌱</div>
+              <h4 class="font-bold text-sm mb-1">Du lịch Xanh</h4>
+              <p class="text-xs text-white/80 leading-relaxed">Sử dụng bao bì giấy tái chế, xơ mướp đóng gói OCOP Express, giảm thiểu rác thải nhựa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. FOOTER ==================== -->
+  <footer class="bg-charcoal text-slate-300 pt-12 pb-24 md:pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2.5 mb-3">
+            <div class="w-9 h-9 rounded-xl bg-terracotta flex items-center justify-center text-white font-bold">
+              <svg class="w-5 h-5" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 11.5C7.5 11.5 11 8.5 14 5C17 8.5 20.5 11.5 25 11.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5 13.5H17.5L16.8 15.8C18.6 17.1 19.3 19.6 18.2 21.8C17.5 23.1 16.1 23.8 14.6 23.8H13.4C11.9 23.8 10.5 23.1 9.8 21.8C8.7 19.6 9.4 17.1 11.2 15.8L10.5 13.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="font-display font-extrabold text-xl tracking-wider text-white">LÀN<span class="text-terracotta">GO</span></span>
+          </div>
+          <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+            LÀNGO – Hành trình Làng nghề & OCOP Việt Nam. Nền tảng Travel Tech & Marketplace kết nối du khách tự túc với các làng nghề truyền thống và hộ sản xuất OCOP chuẩn hóa.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">6 Làng nghề Trọng điểm Hà Nội</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#kham-pha" class="hover:text-terracotta transition-colors">Làng gốm Bát Tràng (Gia Lâm)</a></li>
+            <li><a href="#kham-pha" class="hover:text-terracotta transition-colors">Làng lụa Vạn Phúc (Hà Đông)</a></li>
+            <li><a href="#kham-pha" class="hover:text-terracotta transition-colors">Làng mây tre đan Phú Vinh (Chương Mỹ)</a></li>
+            <li><a href="#kham-pha" class="hover:text-terracotta transition-colors">Sơn mài Hạ Thái • Hương Quảng Phú Cầu • Tò he Xuân La</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Hỗ trợ & Đối tác LÀNGO</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#gian-hang" class="hover:text-terracotta transition-colors">Chính sách giao hàng OCOP Express</a></li>
+            <li><button onclick="toggleMerchantPortal()" class="hover:text-terracotta transition-colors text-left">Kênh Hộ Nghệ nhân LÀNGO (Merchant Portal)</button></li>
+            <li><a href="#he-sinh-thai" class="hover:text-terracotta transition-colors">Mạng lưới Homestay & Trạm dừng chân</a></li>
+            <li><span class="text-slate-500">Hotline hỗ trợ du khách: 1900 6868</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+        <p>© 2026 LÀNGO – Hành trình Làng nghề & OCOP Việt Nam. Bảo lưu mọi quyền.</p>
+        <p>Thanh toán an toàn • Minh bạch nguồn gốc OCOP</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== 9. MOBILE BOTTOM NAVIGATION BAR ==================== -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-sand px-2 py-1.5 flex items-center justify-around shadow-lg">
+    <a href="#kham-pha" class="flex flex-col items-center p-1.5 text-slate-600 hover:text-terracotta">
+      <i data-lucide="map" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Khám phá</span>
+    </a>
+    <a href="#ai-itinerary" class="flex flex-col items-center p-1.5 text-slate-600 hover:text-terracotta">
+      <i data-lucide="sparkles" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Lộ trình</span>
+    </a>
+    <a href="#workshop" class="flex flex-col items-center p-1.5 text-slate-600 hover:text-terracotta">
+      <i data-lucide="palette" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Workshop</span>
+    </a>
+    <a href="#gian-hang" class="flex flex-col items-center p-1.5 text-slate-600 hover:text-terracotta">
+      <i data-lucide="store" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">Gian hàng</span>
+    </a>
+    <button onclick="openMyBookingsModal()" class="flex flex-col items-center p-1.5 text-moss relative">
+      <i data-lucide="ticket" class="w-5 h-5"></i>
+      <span class="text-[10px] font-bold mt-0.5">LÀNGO Pass</span>
+    </button>
+  </nav>
+
+  <!-- ==================== 10. MODAL ĐẶT LỊCH WORKSHOP ==================== -->
+  <div id="workshopModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/60 backdrop-blur-xs">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-sand">
+      <div class="relative h-40 bg-creamDark">
+        <img id="modalWsImage" src="" alt="Workshop" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/30 to-transparent"></div>
+        <button onclick="closeWorkshopModal()" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 text-charcoal flex items-center justify-center hover:bg-terracotta hover:text-white transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div class="absolute bottom-3 left-5 right-5 text-white">
+          <span id="modalWsVillage" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-terracotta">Bát Tràng</span>
+          <h3 id="modalWsTitle" class="font-display font-bold text-lg sm:text-xl mt-1 leading-snug">Tên Workshop</h3>
+        </div>
+      </div>
+
+      <div class="p-5 sm:p-6 space-y-4">
+        <div class="flex items-center justify-between text-xs text-slate-600 bg-cream p-3 rounded-2xl border border-sand/70">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="user-check" class="w-4 h-4 text-moss"></i>
+            <span>Nghệ nhân: <strong id="modalWsArtisan" class="text-charcoal">Nghệ nhân Vũ Đức Thắng</strong></span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-4 h-4 text-terracotta"></i>
+            <span id="modalWsDuration" class="font-bold text-charcoal">45 phút</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Ngày trải nghiệm</label>
+            <input type="date" id="modalWsDate" class="w-full px-3 py-2.5 rounded-xl bg-cream border border-sand text-sm font-semibold text-charcoal focus:outline-none focus:border-terracotta">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Khung giờ tại xưởng</label>
+            <select id="modalWsTime" class="w-full px-3 py-2.5 rounded-xl bg-cream border border-sand text-sm font-semibold text-charcoal focus:outline-none focus:border-terracotta">
+              <option value="09:00 - 09:45">09:00 Sáng (Còn chỗ)</option>
+              <option value="10:30 - 11:15">10:30 Sáng (Còn chỗ)</option>
+              <option value="14:30 - 15:15">14:30 Chiều (Còn chỗ)</option>
+              <option value="16:00 - 16:45">16:00 Chiều (Sắp hết)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Số lượng khách</label>
+            <div class="flex items-center justify-between bg-cream border border-sand rounded-xl px-3 py-2">
+              <button type="button" onclick="changeWsQty(-1)" class="w-7 h-7 rounded-lg bg-white text-charcoal font-bold shadow-2xs hover:bg-terracotta hover:text-white">-</button>
+              <span id="modalWsQty" class="font-bold text-sm text-charcoal">2</span>
+              <button type="button" onclick="changeWsQty(1)" class="w-7 h-7 rounded-lg bg-white text-charcoal font-bold shadow-2xs hover:bg-terracotta hover:text-white">+</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-500 mb-1">Mã LÀNGO Pass</label>
+            <div class="flex gap-1.5">
+              <input type="text" id="modalWsVoucher" value="LANGO15" placeholder="Nhập mã..." class="w-full px-3 py-2 rounded-xl bg-cream border border-sand text-xs font-bold uppercase text-terracotta focus:outline-none">
+              <button type="button" onclick="recalcWorkshopPrice()" class="px-2.5 py-2 rounded-xl bg-moss text-white text-xs font-bold shrink-0">Áp dụng</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-creamDark/70 rounded-2xl p-4 space-y-1.5 border border-sand">
+          <div class="flex justify-between text-xs text-slate-600">
+            <span>Giá gốc tại xưởng (<span id="wsPriceUnit">150.000đ</span> x <span id="wsQtyText">2</span>)</span>
+            <span id="wsSubtotal">300.000đ</span>
+          </div>
+          <div class="flex justify-between text-xs text-moss font-semibold">
+            <span>Ưu đãi độc quyền LÀNGO Pass (15%)</span>
+            <span id="wsDiscount">-45.000đ</span>
+          </div>
+          <div class="flex justify-between text-base font-extrabold text-charcoal pt-2 border-t border-sand">
+            <span>Tổng thanh toán</span>
+            <span id="wsTotalPrice" class="text-terracotta">255.000đ</span>
+          </div>
+        </div>
+
+        <button onclick="confirmWorkshopBooking()" class="w-full py-3.5 rounded-2xl bg-terracotta hover:bg-terracottaDark text-white font-bold text-sm shadow-lg shadow-terracotta/20 transition-all">
+          Xác nhận giữ chỗ & Nhận mã QR LÀNGO Pass
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 11. MODAL CHI TIẾT SẢN PHẨM OCOP & NHÃN DỊ ỨNG ==================== -->
+  <div id="productDetailModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/60 backdrop-blur-xs">
+    <div class="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-sand">
+      <div class="p-5 sm:p-6">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="pdOcopBadge" class="px-2.5 py-0.5 rounded-full bg-gold/15 text-amber-800 text-xs font-extrabold">⭐ OCOP 4 SAO</span>
+              <span id="pdOrigin" class="text-xs font-semibold text-slate-500">Bát Tràng, Hà Nội</span>
+            </div>
+            <h3 id="pdTitle" class="font-display font-extrabold text-xl text-charcoal">Tên sản phẩm OCOP</h3>
+          </div>
+          <button onclick="closeProductModal()" class="w-9 h-9 rounded-full bg-cream text-charcoal flex items-center justify-center hover:bg-terracotta hover:text-white transition-colors shrink-0">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <img id="pdImage" src="" alt="OCOP Product" class="w-full h-48 object-cover rounded-2xl border border-sand">
+          <div class="space-y-3">
+            <div class="bg-cream p-3 rounded-2xl border border-sand/80">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-terracotta mb-1">Câu chuyện Hộ Nghệ nhân</p>
+              <p id="pdStory" class="text-xs text-slate-700 leading-relaxed">Mô tả câu chuyện...</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-500">Giá bán tận xưởng:</span>
+              <span id="pdPrice" class="font-display font-extrabold text-xl text-terracotta">450.000đ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nhãn minh bạch thông tin & Cảnh báo dị ứng -->
+        <div id="pdTransparencyBox" class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-xs space-y-1.5 mb-5">
+          <div class="flex items-center gap-1.5 font-bold text-amber-900">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-amber-600"></i>
+            <span>Nhãn Minh bạch Thông tin & Cảnh báo Dị ứng Thực phẩm</span>
+          </div>
+          <p id="pdIngredients" class="text-slate-700"><strong>Thành phần / Chất liệu:</strong> ...</p>
+          <p id="pdAllergy" class="text-amber-800 font-semibold"><strong>Cảnh báo dị ứng:</strong> ...</p>
+        </div>
+
+        <div class="flex gap-3">
+          <button id="pdAddToCartBtn" class="flex-1 py-3.5 rounded-2xl bg-charcoal hover:bg-terracotta text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors">
+            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+            <span>Thêm vào giỏ OCOP Express</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 12. DRAWER GIỎ HÀNG & OCOP EXPRESS LOGISTICS ==================== -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 hidden justify-end bg-charcoal/50 backdrop-blur-xs">
+    <div class="bg-white w-full max-w-md h-full flex flex-col justify-between shadow-2xl overflow-y-auto">
+      
+      <!-- Cart Header -->
+      <div class="p-5 border-b border-sand flex items-center justify-between sticky top-0 bg-white z-10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-terracotta/10 text-terracotta flex items-center justify-center">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-base text-charcoal">Giỏ hàng LÀNGO • OCOP Express</h3>
+            <p class="text-[11px] text-slate-500">Giao tận tay – Đóng gói chuẩn hành lý</p>
+          </div>
+        </div>
+        <button onclick="toggleCartDrawer()" class="w-8 h-8 rounded-full bg-cream text-charcoal flex items-center justify-center hover:bg-terracotta hover:text-white">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Cart Items List -->
+      <div class="p-5 flex-1 space-y-5">
+        <div id="cartItemsContainer" class="space-y-3">
+          <!-- Render động qua JS -->
+        </div>
+
+        <!-- Tùy chọn Logistics OCOP Express -->
+        <div class="bg-cream rounded-2xl p-4 border border-sand space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-moss flex items-center gap-1.5">
+              <i data-lucide="truck" class="w-4 h-4"></i> Phương thức nhận hàng
+            </span>
+            <span class="text-[10px] font-bold bg-mossLight text-moss px-2 py-0.5 rounded-full">OCOP Express</span>
+          </div>
+
+          <div class="space-y-2">
+            <!-- Option 1: Khách sạn / Homestay -->
+            <label class="block cursor-pointer">
+              <input type="radio" name="deliveryMethod" value="hotel" checked onchange="updateCartSummary()" class="peer sr-only">
+              <div class="p-3 rounded-xl bg-white border border-sand peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-charcoal">🏨 Giao về Khách sạn / Homestay trong ngày</span>
+                  <span class="text-xs font-extrabold text-moss">15.000đ</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Đối tác GHN Express giao tận quầy lễ tân trước 19:00 tối nay.</p>
+              </div>
+            </label>
+
+            <!-- Option 2: Sân bay -->
+            <label class="block cursor-pointer">
+              <input type="radio" name="deliveryMethod" value="airport" onchange="updateCartSummary()" class="peer sr-only">
+              <div class="p-3 rounded-xl bg-white border border-sand peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-charcoal">✈️ Giao ra Sân bay Nội Bài / Đà Nẵng</span>
+                  <span class="text-xs font-extrabold text-terracotta">35.000đ</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Đóng gói thùng xốp chống sốc chuẩn hành lý ký gửi hàng không.</p>
+              </div>
+            </label>
+
+            <!-- Option 3: Địa chỉ nhà -->
+            <label class="block cursor-pointer">
+              <input type="radio" name="deliveryMethod" value="home" onchange="updateCartSummary()" class="peer sr-only">
+              <div class="p-3 rounded-xl bg-white border border-sand peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-charcoal">🏠 Giao về địa chỉ nhà (Viettel Post / GHN)</span>
+                  <span class="text-xs font-extrabold text-slate-700">25.000đ</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Vận chuyển toàn quốc 2–3 ngày, bảo hiểm vỡ hỏng 100%.</p>
+              </div>
+            </label>
+
+            <!-- Option 4: Nhận trực tiếp tại xưởng -->
+            <label class="block cursor-pointer">
+              <input type="radio" name="deliveryMethod" value="pickup" onchange="updateCartSummary()" class="peer sr-only">
+              <div class="p-3 rounded-xl bg-white border border-sand peer-checked:border-terracotta peer-checked:bg-terracotta/5 transition-all">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-charcoal">🏺 Nhận trực tiếp tại Xưởng / Trạm LÀNGO</span>
+                  <span class="text-xs font-extrabold text-moss">Miễn phí</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Xuất trình mã đơn hàng tại quầy nghệ nhân để nhận túi quà.</p>
+              </div>
+            </label>
+          </div>
+
+          <div>
+            <input type="text" id="deliveryAddressInput" placeholder="Nhập tên Khách sạn, Số hiệu chuyến bay hoặc Địa chỉ..." class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-sand text-xs font-medium text-charcoal focus:outline-none focus:border-terracotta">
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Footer / Checkout -->
+      <div class="p-5 border-t border-sand bg-cream/60 space-y-3">
+        <div class="space-y-1 text-xs">
+          <div class="flex justify-between text-slate-600">
+            <span>Tạm tính sản phẩm OCOP</span>
+            <span id="cartSubtotal" class="font-bold text-charcoal">0đ</span>
+          </div>
+          <div class="flex justify-between text-slate-600">
+            <span>Phí vận chuyển OCOP Express</span>
+            <span id="cartShippingFee" class="font-bold text-moss">15.000đ</span>
+          </div>
+          <div class="flex justify-between text-base font-extrabold text-charcoal pt-2 border-t border-sand">
+            <span>Tổng thanh toán</span>
+            <span id="cartGrandTotal" class="text-terracotta">0đ</span>
+          </div>
+        </div>
+
+        <button onclick="checkoutOcopCart()" class="w-full py-3.5 rounded-2xl bg-terracotta hover:bg-terracottaDark text-white font-bold text-sm shadow-lg shadow-terracotta/20 transition-all">
+          Đặt hàng & Kích hoạt OCOP Express
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== 13. MODAL VÉ LÀNGO PASS ĐÃ ĐẶT ==================== -->
+  <div id="myBookingsModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charcoal/60 backdrop-blur-xs">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-sand">
+      <div class="flex items-center justify-between pb-3 border-b border-sand mb-4">
+        <h3 class="font-display font-bold text-lg text-charcoal flex items-center gap-2">
+          <i data-lucide="ticket" class="w-5 h-5 text-moss"></i> Thẻ LÀNGO Pass & Lịch Workshop
+        </h3>
+        <button onclick="closeMyBookingsModal()" class="w-8 h-8 rounded-full bg-cream flex items-center justify-center text-charcoal">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div id="myBookingsList" class="space-y-3 max-h-80 overflow-y-auto">
+        <!-- Render động qua JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 14. TOAST THÔNG BÁO (THAY THẾ ALERT) ==================== -->
+  <div id="toastNotification" class="fixed top-20 right-4 z-50 transform translate-x-[150%] transition-transform duration-300 max-w-sm bg-charcoal text-white px-4 py-3.5 rounded-2xl shadow-xl border border-slate-700 flex items-start gap-3">
+    <div class="w-6 h-6 rounded-full bg-moss text-white flex items-center justify-center shrink-0 mt-0.5">
+      <i data-lucide="check" class="w-3.5 h-3.5"></i>
+    </div>
+    <div>
+      <h4 id="toastTitle" class="font-bold text-xs text-white">Thành công</h4>
+      <p id="toastMessage" class="text-xs text-slate-300 mt-0.5 leading-relaxed">Nội dung thông báo...</p>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // --- DỮ LIỆU THỰC TẾ 6 LÀNG NGHỀ TRỌNG ĐIỂM HÀ NỘI & TUYẾN MIỀN TRUNG ---
+    const villagesData = [
+      {
+        id: 'bat-trang',
+        name: 'Làng Gốm Bát Tràng',
+        location: 'Xã Bát Tràng, Gia Lâm, Hà Nội',
+        region: 'hanoi',
+        distance: '14 km từ Hồ Gươm',
+        scale: 'Hơn 1.000 hộ SX & 200 doanh nghiệp gốm',
+        durationType: 'half',
+        durationText: 'Nửa ngày (3–4h)',
+        budgetType: 'low',
+        budgetText: 'Từ 150k',
+        category: 'pottery',
+        categoryLabel: 'Gốm sứ cổ truyền',
+        rating: 4.9,
+        reviews: 412,
+        image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80',
+        stopStation: 'Trạm Ký gửi & Bảo tàng Gốm Bát Tràng',
+        highlights: 'Lịch sử hơn 500 năm bên bờ sông Hồng. Trải nghiệm vuốt gốm bàn xoay, vẽ men lam và tham quan lò bầu cổ.',
+        workshopId: 'ws-1'
+      },
+      {
+        id: 'van-phuc',
+        name: 'Làng Lụa Vạn Phúc',
+        location: 'Phường Vạn Phúc, Hà Đông, Hà Nội',
+        region: 'hanoi',
+        distance: '11 km từ Trung tâm',
+        scale: 'Gần 800 hộ dệt lụa & kinh doanh tơ tằm',
+        durationType: 'half',
+        durationText: 'Nửa ngày (3h)',
+        budgetType: 'mid',
+        budgetText: 'Từ 220k',
+        category: 'silk',
+        categoryLabel: 'Dệt lụa tơ tằm',
+        rating: 4.8,
+        reviews: 315,
+        image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80',
+        stopStation: 'Cổng chào Phố Lụa & Trạm LÀNGO',
+        highlights: 'Cái nôi của lụa Vân nổi tiếng kinh kỳ hơn 1.000 năm tuổi. Nghe tiếng thoi đưa, nhuộm khăn lụa tự nhiên và check-in con đường ô.',
+        workshopId: 'ws-2'
+      },
+      {
+        id: 'phu-vinh',
+        name: 'Làng Mây Tre Đan Phú Vinh',
+        location: 'Xã Phú Nghĩa, Chương Mỹ, Hà Nội',
+        region: 'hanoi',
+        distance: '25 km từ Trung tâm',
+        scale: 'Hơn 400 năm tuổi • 90% hộ dân làm nghề',
+        durationType: 'half',
+        durationText: 'Nửa ngày (3.5h)',
+        budgetType: 'low',
+        budgetText: 'Từ 140k',
+        category: 'bamboo_lacquer',
+        categoryLabel: 'Mây tre đan tinh xảo',
+        rating: 4.8,
+        reviews: 178,
+        image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80',
+        stopStation: 'Nhà Truyền thống Mây Tre Phú Vinh',
+        highlights: 'Kỹ thuật đan xương cá, đan hoa văn tinh xảo từ song, mây, giang. Tự tay đan giỏ mây mini và tìm hiểu quy trình hun khói tạo màu.',
+        workshopId: 'ws-3'
+      },
+      {
+        id: 'ha-thai',
+        name: 'Làng Sơn Mài Hạ Thái',
+        location: 'Xã Duyên Thái, Thường Tín, Hà Nội',
+        region: 'hanoi',
+        distance: '18 km từ Trung tâm',
+        scale: 'Làng nghề thế kỷ XVII • Xuất khẩu 20+ nước',
+        durationType: 'half',
+        durationText: 'Nửa ngày (4h)',
+        budgetType: 'mid',
+        budgetText: 'Từ 250k',
+        category: 'bamboo_lacquer',
+        categoryLabel: 'Sơn mài & Khảm trứng',
+        rating: 4.9,
+        reviews: 194,
+        image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80',
+        stopStation: 'Hợp tác xã Sơn mài Hạ Thái',
+        highlights: 'Nghệ thuật gắn vỏ trứng, dát vàng bạc và mài nước công phu qua 15 công đoạn tạo chiều sâu huyền ảo trên từng tác phẩm.',
+        workshopId: 'ws-4'
+      },
+      {
+        id: 'quang-phu-cau',
+        name: 'Làng Tăm Hương Quảng Phú Cầu',
+        location: 'Xã Quảng Phú Cầu, Ứng Hòa, Hà Nội',
+        region: 'hanoi',
+        distance: '35 km từ Trung tâm',
+        scale: 'Hơn 100 năm tuổi • Cung cấp hương toàn miền Bắc',
+        durationType: 'full',
+        durationText: '1 ngày (6h)',
+        budgetType: 'low',
+        budgetText: 'Từ 130k',
+        category: 'folk_incense',
+        categoryLabel: 'Tăm hương thảo mộc',
+        rating: 4.9,
+        reviews: 520,
+        image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80',
+        stopStation: 'Sân phơi Hương Đỏ Xóm Bầu',
+        highlights: 'Chiêm ngưỡng những "đóa hoa hương" đỏ rực rỡ phơi dưới nắng, trải nghiệm chẻ vầu, nhuộm chân hương và se hương trầm quế.',
+        workshopId: 'ws-1'
+      },
+      {
+        id: 'xuan-la',
+        name: 'Làng Nặn Tò He Xuân La',
+        location: 'Xã Phượng Dực, Phú Xuyên, Hà Nội',
+        region: 'hanoi',
+        distance: '38 km từ Trung tâm',
+        scale: 'Làng nghề nặn tò he duy nhất tại Việt Nam',
+        durationType: 'full',
+        durationText: '1 ngày (6h)',
+        budgetType: 'low',
+        budgetText: 'Từ 120k',
+        category: 'folk_incense',
+        categoryLabel: 'Nghệ thuật Tò he dân gian',
+        rating: 4.8,
+        reviews: 165,
+        image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80',
+        stopStation: 'Câu lạc bộ Nghệ nhân Tò he Xuân La',
+        highlights: 'Tự tay nhào bột nếp nhuộm màu từ lá riềng, quả gấc, dành dành để nặn thành 12 con giáp và nhân vật cổ tích Việt Nam.',
+        workshopId: 'ws-3'
+      },
+      {
+        id: 'thanh-ha',
+        name: 'Làng Gốm Thanh Hà & Rau Trà Quế',
+        location: 'TP. Hội An, Quảng Nam',
+        region: 'central',
+        distance: '3 km từ Phố cổ Hội An',
+        scale: 'Di sản văn hóa phi vật thể Quốc gia',
+        durationType: 'full',
+        durationText: '1 ngày (7h)',
+        budgetType: 'high',
+        budgetText: 'Từ 520k',
+        category: 'pottery',
+        categoryLabel: 'Gốm đất nung & Nông nghiệp xanh',
+        rating: 4.9,
+        reviews: 340,
+        image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
+        stopStation: 'Bến đò Gốm Thanh Hà – Hội An',
+        highlights: 'Chuốt gốm không men bằng bàn xoay đạp chân bên sông Thu Bồn, kết hợp trải nghiệm trồng rau hữu cơ và thưởng thức trà thảo mộc.',
+        workshopId: 'ws-1'
+      }
+    ];
+
+    // --- DỮ LIỆU BƯỚC 3: CÁC CƠ SỞ SẢN XUẤT / HỘ NGHỆ NHÂN TRONG TỪNG LÀNG NGHỀ ---
+    const artisanSpotsData = [
+      {
+        id: 'spot-bt-1',
+        villageId: 'bat-trang',
+        name: 'Xưởng Gốm Nghệ Nhân Ưu Tú Vũ Đức Thắng',
+        artisan: 'Nghệ nhân Vũ Đức Thắng (45 năm tuổi nghề)',
+        specialty: 'Gốm men rạn cổ & Điêu khắc gốm nghệ thuật',
+        openHours: '08:00 – 17:30 (Đón khách lẻ & nhóm)',
+        workshopPrice: '150.000đ / 45 phút',
+        story: 'Gia đình 4 đời làm gốm tại xóm 4 Bát Tràng, lưu giữ công thức men tro trấu tự nhiên và trực tiếp hướng dẫn du khách vuốt gốm.',
+        image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-bt-2',
+        villageId: 'bat-trang',
+        name: 'Cơ sở Gốm Gia Dụng & Men Lam Hùng Thủy',
+        artisan: 'Nghệ nhân Nguyễn Văn Hùng',
+        specialty: 'Ấm chén men lam vẽ tay chuẩn OCOP 4 sao',
+        openHours: '08:30 – 18:00',
+        workshopPrice: '130.000đ / 40 phút',
+        story: 'Chuyên dòng gốm gia dụng vẽ họa tiết chuồn chuồn, hoa sen bằng bút lông thủ công. Hỗ trợ đóng gói OCOP Express giao tận sân bay.',
+        image: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-bt-3',
+        villageId: 'bat-trang',
+        name: 'Không gian Lò Bầu Cổ & Trạm Ký gửi Bát Tràng',
+        artisan: 'Tổ hợp Bảo tồn Di sản Bát Tràng',
+        specialty: 'Tham quan lò nung cổ duy nhất còn lại & Thuê Việt phục',
+        openHours: '07:30 – 18:30',
+        workshopPrice: '50.000đ (Vé tham quan & thuyết minh)',
+        story: 'Nơi du khách chui vào lòng lò bầu 5 gian hàng trăm năm tuổi để hiểu rõ cách người xưa xếp chồng gốm và canh lửa.',
+        image: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-vp-1',
+        villageId: 'van-phuc',
+        name: 'Xưởng Dệt Lụa Cổ Nghệ Nhân Triệu Văn Mão',
+        artisan: 'Gia đình cố Nghệ nhân Triệu Văn Mão',
+        specialty: 'Dệt lụa Vân hoa văn cổ trên khung cửi gỗ',
+        openHours: '08:00 – 17:00',
+        workshopPrice: '220.000đ / 60 phút',
+        story: 'Một trong những xưởng hiếm hoi còn giữ khung cửi dệt thủ công lụa Vân – loại lụa tiến vua nổi tiếng với hoa văn chìm tinh tế.',
+        image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-vp-2',
+        villageId: 'van-phuc',
+        name: 'Hộ Nhuộm Lụa Tự Nhiên Hương Thảo',
+        artisan: 'Nghệ nhân Nguyễn Thị Tâm',
+        specialty: 'Nhuộm khăn lụa tơ tằm bằng củ nâu, cánh sen, lá bàng',
+        openHours: '08:30 – 17:30',
+        workshopPrice: '190.000đ / 45 phút',
+        story: 'Du khách tự tay buộc hoa văn Shibori lên khăn lụa trắng và nhúng vào nồi nước nhuộm thảo mộc ấm nóng.',
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-pv-1',
+        villageId: 'phu-vinh',
+        name: 'Xưởng Mây Tre Đan Nghệ Nhân Nguyễn Văn Trung',
+        artisan: 'Nghệ nhân Ưu tú Nguyễn Văn Trung',
+        specialty: 'Đan đĩa mây chân dung & Giỏ mây xuất khẩu OCOP',
+        openHours: '08:00 – 17:00',
+        workshopPrice: '140.000đ / 50 phút',
+        story: 'Hướng dẫn kỹ thuật chẻ mây, chuốt nan và đan lót cốc hoặc giỏ mây thủ công mang về.',
+        image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-ht-1',
+        villageId: 'ha-thai',
+        name: 'Xưởng Sơn Mài Nghệ Nhân Đỗ Trọng Đoàn',
+        artisan: 'Nghệ nhân Đỗ Trọng Đoàn',
+        specialty: 'Khảm vỏ trứng, dát vàng & Tranh sơn mài truyền thống',
+        openHours: '08:30 – 17:30',
+        workshopPrice: '250.000đ / 60 phút',
+        story: 'Trải nghiệm đập vỏ trứng vịt, gắn họa tiết lên vóc gỗ và mài lộ lớp sơn then, sơn cánh gián.',
+        image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-qpc-1',
+        villageId: 'quang-phu-cau',
+        name: 'Cơ sở Hương Sạch Thảo Mộc Đặng Thị Hoa',
+        artisan: 'Nghệ nhân Đặng Thị Hoa',
+        specialty: 'Se hương trầm quế thủ công & Sân phơi hương nghệ thuật',
+        openHours: '07:30 – 17:00',
+        workshopPrice: '130.000đ / 45 phút',
+        story: 'Tìm hiểu bài thuốc bắc 12 vị làm bột hương sạch, tự se những nén hương thơm dịu và chụp ảnh tại sân phơi chân hương.',
+        image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-xl-1',
+        villageId: 'xuan-la',
+        name: 'Xưởng Tò He Nghệ Nhân Đặng Văn Hậu',
+        artisan: 'Nghệ nhân trẻ Đặng Văn Hậu',
+        specialty: 'Tò he truyền thống & Bộ sưu tập 12 con giáp',
+        openHours: '08:00 – 17:00',
+        workshopPrice: '120.000đ / 45 phút',
+        story: 'Tự tay pha màu bột gạo nếp từ rau củ tự nhiên và học kỹ thuật lăn, vuốt tạo hình nhân vật dân gian.',
+        image: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'spot-th-1',
+        villageId: 'thanh-ha',
+        name: 'Xưởng Gốm Đạp Chân Nghệ Nhân Nguyễn Văn Tiếp',
+        artisan: 'Nghệ nhân Nguyễn Văn Tiếp',
+        specialty: 'Gốm đất nung không men & Tò he đất Thanh Hà',
+        openHours: '08:00 – 17:30',
+        workshopPrice: '160.000đ / 45 phút',
+        story: 'Một người đạp bàn xoay bằng chân, một người vuốt đất sét phù sa sông Thu Bồn tạo hình tò he đất độc đáo.',
+        image: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80'
+      }
+    ];
+
+    const workshopsData = [
+      {
+        id: 'ws-1',
+        title: 'Tự tay vuốt gốm bàn xoay & vẽ men lam Bát Tràng',
+        village: 'Làng Gốm Bát Tràng',
+        artisan: 'Nghệ nhân Vũ Đức Thắng',
+        duration: '45 phút',
+        price: 150000,
+        slotsLeft: 4,
+        rating: 4.9,
+        stopPoint: 'Trạm Dừng chân Xóm 4 Bát Tràng',
+        image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'ws-2',
+        title: 'Nhuộm khăn lụa tơ tằm bằng màu lá cây tự nhiên',
+        village: 'Làng Lụa Vạn Phúc',
+        artisan: 'Nghệ nhân Nguyễn Thị Tâm',
+        duration: '60 phút',
+        price: 220000,
+        slotsLeft: 6,
+        rating: 4.8,
+        stopPoint: 'Xưởng Dệt Phố Lụa Vạn Phúc',
+        image: 'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'ws-3',
+        title: 'Khảm vỏ trứng & mài tranh sơn mài Hạ Thái',
+        village: 'Làng Sơn Mài Hạ Thái',
+        artisan: 'Nghệ nhân Đỗ Trọng Đoàn',
+        duration: '60 phút',
+        price: 250000,
+        slotsLeft: 5,
+        rating: 5.0,
+        stopPoint: 'HTX Sơn mài Hạ Thái, Thường Tín',
+        image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'ws-4',
+        title: 'Đan đĩa mây hoa văn truyền thống Phú Vinh',
+        village: 'Làng Mây Tre Phú Vinh',
+        artisan: 'Nghệ nhân Nguyễn Văn Trung',
+        duration: '50 phút',
+        price: 140000,
+        slotsLeft: 8,
+        rating: 4.8,
+        stopPoint: 'Nhà Truyền thống Phú Vinh, Chương Mỹ',
+        image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80'
+      }
+    ];
+
+    const productsData = [
+      {
+        id: 'prod-1',
+        name: 'Bình Gốm Men Rạn Cổ Bát Tràng (Vẽ Tay)',
+        village: 'Hộ SX Gốm Hùng Thủy – Bát Tràng',
+        ocopStars: 'OCOP 4 SAO',
+        category: 'craft',
+        price: 480000,
+        image: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80',
+        story: 'Chế tác từ đất sét trắng Đông Triều tinh luyện, nung củi ở nhiệt độ 1.250°C tạo nên những đường rạn tự nhiên độc bản trên từng chiếc bình.',
+        ingredients: 'Đất sét cao lanh tinh luyện, men tro trấu tự nhiên, không chứa chì hay kim loại nặng.',
+        allergyWarning: 'An toàn tuyệt đối khi đựng nước uống & thực phẩm. Đóng gói chống sốc 3 lớp khi gửi OCOP Express.'
+      },
+      {
+        id: 'prod-2',
+        name: 'Khăn Lụa Tơ Tằm Vạn Phúc Hoa Sen',
+        village: 'HTX Lụa Tơ Tằm Vạn Phúc – Hà Đông',
+        ocopStars: 'OCOP 4 SAO',
+        category: 'textile',
+        price: 390000,
+        image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80',
+        story: 'Dệt từ 100% tơ tằm Bảo Lộc trên khung cửi truyền thống, mềm mại, thoáng mát mùa hè và giữ ấm mùa đông.',
+        ingredients: '100% sợi tơ tằm tự nhiên, màu nhuộm chiết xuất từ cánh sen và củ nâu.',
+        allergyWarning: 'Không gây kích ứng da nhạy cảm. Khuyến nghị giặt tay nhẹ nhàng bằng nước lạnh.'
+      },
+      {
+        id: 'prod-3',
+        name: 'Trà Sen Bách Diệp Hồ Tây Thượng Hạng',
+        village: 'Hộ Nghệ nhân Trà Quảng An – Tây Hồ',
+        ocopStars: 'OCOP 5 SAO',
+        category: 'food',
+        price: 320000,
+        image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=600&q=80',
+        story: 'Mỗi kilogram trà Tân Cương nõn tôm được ướp cùng 1.000 bông sen Bách Diệp Hồ Tây hái lúc tinh mơ, ủ hương suốt 21 ngày đêm.',
+        ingredients: '100% búp trà xanh Tân Cương, gạo sen Bách Diệp Hồ Tây tự nhiên, không hương liệu hóa học.',
+        allergyWarning: '⚠️ Lưu ý: Sản phẩm chứa Caffeine tự nhiên từ lá trà. Không dùng cho người mẫn cảm với phấn hoa sen.'
+      },
+      {
+        id: 'prod-4',
+        name: 'Bánh Đậu Xanh Rồng Vàng Hạt Sen OCOP',
+        village: 'Cơ sở Gia truyền Hải Dương',
+        ocopStars: 'OCOP 4 SAO',
+        category: 'food',
+        price: 95000,
+        image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80',
+        story: 'Bánh tan ngay đầu lưỡi, vị ngọt thanh tự nhiên kết hợp cùng trà sen tạo nên thức quà biếu tinh tế đậm chất Bắc Bộ.',
+        ingredients: 'Bột đậu xanh nguyên chất (65%), đường kính trắng, dầu thực vật, tinh dầu hoa bưởi, hạt sen.',
+        allergyWarning: '⚠️ Cảnh báo dị ứng: Có chứa Đậu xanh và Hạt sen. Sản xuất trên dây chuyền có thể chứa vết của vừng (mè).'
+      },
+      {
+        id: 'prod-5',
+        name: 'Khay Sơn Mài Khảm Vỏ Trứng Hạ Thái',
+        village: 'Xưởng Nghệ nhân Đỗ Trọng Đoàn – Thường Tín',
+        ocopStars: 'OCOP 4 SAO',
+        category: 'craft',
+        price: 360000,
+        image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=600&q=80',
+        story: 'Phủ 15 lớp sơn ta truyền thống kết hợp vỏ trứng vịt rang vàng tạo hiệu ứng nứt tự nhiên sang trọng.',
+        ingredients: 'Gỗ tự nhiên chống cong vênh, nhựa cây sơn Phú Thọ, vỏ trứng tự nhiên.',
+        allergyWarning: 'Sơn đã qua xử lý khô hoàn toàn, an toàn khi sử dụng đựng bánh kẹo, trà khô.'
+      },
+      {
+        id: 'prod-6',
+        name: 'Nhang Trầm Thảo Mộc Quảng Phú Cầu (Hộp Tre)',
+        village: 'Cơ sở Hương Sạch Đặng Thị Hoa – Ứng Hòa',
+        ocopStars: 'OCOP 4 SAO',
+        category: 'craft',
+        price: 175000,
+        image: 'https://images.unsplash.com/photo-1602928321679-560bb453f190?auto=format&fit=crop&w=600&q=80',
+        story: 'Tăm tre vót tay nhuộm màu thảo mộc, bột thảo mộc 12 vị thuốc bắc giúp thư giãn tinh thần, thanh lọc không gian.',
+        ingredients: 'Bột trầm hương, quế chi, đại hồi, keo bời lời, tăm tre nguyên cật.',
+        allergyWarning: '⚠️ Lưu ý: Sử dụng nơi thoáng khí. Người có tiền sử hen suyễn nhạy cảm với khói nên lưu ý khi đốt.'
+      }
+    ];
+
+    // --- STATE ỨNG DỤNG ---
+    let selectedWorkshop = null;
+    let workshopQty = 2;
+    let myBookings = [];
+    let cart = [
+      { productId: 'prod-1', qty: 1 },
+      { productId: 'prod-3', qty: 1 }
+    ];
+    let selectedAiDuration = '4h';
+    let currentArtisanVillageId = 'bat-trang';
+    let selectedRouteStops = ['spot-bt-1', 'spot-bt-3'];
+    let isMerchantMode = false;
+
+    // --- KHỞI TẠO KHI TẢI TRANG ---
+    document.addEventListener('DOMContentLoaded', () => {
+      renderVillages(villagesData);
+      selectMapPin('bat-trang');
+      renderVillageArtisanTabs();
+      renderArtisanSpots('bat-trang');
+      renderSelectedStopsPills();
+      renderWorkshops();
+      renderProducts('all');
+      generateAiItinerary(true);
+      updateCartUI();
+      
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('modalWsDate').value = tomorrow.toISOString().split('T')[0];
+
+      lucide.createIcons();
+    });
+
+    function toggleMerchantPortal() {
+      isMerchantMode = !isMerchantMode;
+      const banner = document.getElementById('merchantPortalBanner');
+      const label = document.getElementById('roleSwitchLabel');
+      if (isMerchantMode) {
+        banner.classList.remove('hidden');
+        label.innerText = 'Chế độ Du khách';
+        showToast('Đã bật Kênh Hộ Nghệ nhân LÀNGO', 'Bạn đang xem trước giao diện quản lý dành cho Hộ sản xuất.');
+      } else {
+        banner.classList.add('hidden');
+        label.innerText = 'Kênh Nghệ nhân';
+      }
+    }
+
+    function formatVND(amount) {
+      return amount.toLocaleString('vi-VN') + 'đ';
+    }
+
+    // --- RENDER & LỌC LÀNG NGHỀ ---
+    function renderVillages(list) {
+      const container = document.getElementById('villageCardsContainer');
+      const emptyState = document.getElementById('emptyVillagesState');
+
+      if (list.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      container.innerHTML = list.map(v => `
+        <div onclick="selectMapPin('${v.id}')" class="bg-white rounded-3xl overflow-hidden border border-sand shadow-soft hover:shadow-card transition-all cursor-pointer group flex flex-col justify-between">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="${v.image}" alt="${v.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 flex gap-1.5">
+                <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[11px] font-bold text-charcoal shadow-2xs">${v.categoryLabel}</span>
+              </div>
+              <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-charcoal/80 text-white text-[11px] font-bold flex items-center gap-1">
+                <span>⭐ ${v.rating}</span>
+                <span class="text-slate-300">(${v.reviews})</span>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-5">
+              <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+                <span class="flex items-center gap-1 font-medium"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-terracotta"></i> ${v.location}</span>
+                <span class="font-bold text-moss">${v.budgetText}</span>
+              </div>
+              <h3 class="font-display font-extrabold text-lg text-charcoal group-hover:text-terracotta transition-colors">${v.name}</h3>
+              <p class="text-[11px] font-semibold text-terracotta mt-0.5">${v.scale}</p>
+              <p class="text-xs text-slate-600 mt-1.5 line-clamp-2 leading-relaxed">${v.highlights}</p>
+            </div>
+          </div>
+
+          <div class="px-4 sm:px-5 pb-4 pt-2 border-t border-sand/50 flex items-center justify-between gap-2">
+            <span class="text-[11px] font-semibold text-slate-500 bg-cream px-2.5 py-1 rounded-lg">${v.durationText}</span>
+            <button onclick="event.stopPropagation(); jumpToVillageArtisans('${v.id}')" class="text-xs font-bold text-terracotta hover:underline flex items-center gap-1">
+              Xem hộ nghệ nhân <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function jumpToVillageArtisans(villageId) {
+      renderArtisanSpots(villageId);
+      document.getElementById('ho-nghe-nhan').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function applyVillageFilters() {
+      const region = document.getElementById('filterRegion').value;
+      const duration = document.getElementById('filterDuration').value;
+      const budget = document.getElementById('filterBudget').value;
+      const category = document.getElementById('filterCategory').value;
+
+      const filtered = villagesData.filter(v => {
+        const matchRegion = region === 'all' || v.region === region;
+        const matchDur = duration === 'all' || v.durationType === duration;
+        const matchBudget = budget === 'all' || v.budgetType === budget;
+        const matchCat = category === 'all' || v.category === category;
+        return matchRegion && matchDur && matchBudget && matchCat;
+      });
+
+      renderVillages(filtered);
+    }
+
+    function quickFilterTag(regionVal, durVal) {
+      document.getElementById('filterRegion').value = regionVal;
+      document.getElementById('filterDuration').value = durVal;
+      document.getElementById('filterCategory').value = 'all';
+      applyVillageFilters();
+      document.getElementById('kham-pha').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function quickFilterCategory(catVal) {
+      document.getElementById('filterRegion').value = 'all';
+      document.getElementById('filterDuration').value = 'all';
+      document.getElementById('filterCategory').value = catVal;
+      applyVillageFilters();
+      document.getElementById('kham-pha').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetFilters() {
+      document.getElementById('filterRegion').value = 'all';
+      document.getElementById('filterDuration').value = 'all';
+      document.getElementById('filterBudget').value = 'all';
+      document.getElementById('filterCategory').value = 'all';
+      renderVillages(villagesData);
+    }
+
+    function selectMapPin(villageId) {
+      const village = villagesData.find(v => v.id === villageId) || villagesData[0];
+      
+      document.querySelectorAll('.map-pin-btn').forEach(btn => {
+        const inner = btn.querySelector('div');
+        if (btn.id === 'pin-' + villageId) {
+          inner.classList.remove('bg-white', 'text-charcoal');
+          inner.classList.add('bg-terracotta', 'text-white', 'scale-110');
+        } else if (btn.id !== 'pin-thanh-ha') {
+          inner.classList.remove('bg-terracotta', 'text-white', 'scale-110');
+          inner.classList.add('bg-white', 'text-charcoal');
+        }
+      });
+
+      renderArtisanSpots(villageId);
+
+      const detailBox = document.getElementById('mapSelectedDetail');
+      detailBox.innerHTML = `
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <span class="text-[11px] font-bold text-terracotta uppercase tracking-wider">${village.distance}</span>
+            <h4 class="font-display font-extrabold text-base text-charcoal mt-0.5">${village.name}</h4>
+            <p class="text-[11px] font-semibold text-moss mt-0.5">${village.scale}</p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-mossLight text-moss text-[11px] font-bold shrink-0">${village.durationText}</span>
+        </div>
+        <p class="text-xs text-slate-600 mt-2 leading-relaxed">${village.highlights}</p>
+        <div class="mt-3 pt-2.5 border-t border-sand/80 flex items-center justify-between gap-2">
+          <div class="text-[11px] text-slate-500 flex items-center gap-1">
+            <i data-lucide="flag" class="w-3.5 h-3.5 text-moss shrink-0"></i>
+            <span class="truncate max-w-[175px]">${village.stopStation}</span>
+          </div>
+          <button onclick="jumpToVillageArtisans('${village.id}')" class="px-3 py-1.5 rounded-xl bg-charcoal hover:bg-terracotta text-white text-xs font-bold transition-colors shrink-0">
+            Chọn hộ nghệ nhân
+          </button>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // --- BƯỚC 3: RENDER CƠ SỞ SẢN XUẤT / HỘ NGHỆ NHÂN & GHÉP VÀO LỘ TRÌNH ---
+    function renderVillageArtisanTabs() {
+      const container = document.getElementById('villageArtisanTabs');
+      container.innerHTML = villagesData.map(v => `
+        <button onclick="renderArtisanSpots('${v.id}')" id="art-tab-${v.id}" class="art-village-tab px-3.5 py-2 rounded-full text-xs font-bold border transition-all shrink-0 ${v.id === currentArtisanVillageId ? 'bg-charcoal text-white border-charcoal' : 'bg-cream text-slate-700 border-sand hover:bg-creamDark'}">
+          ${v.name.replace('Làng ', '')}
+        </button>
+      `).join('');
+    }
+
+    function renderArtisanSpots(villageId) {
+      currentArtisanVillageId = villageId;
+      const village = villagesData.find(v => v.id === villageId) || villagesData[0];
+      document.getElementById('activeVillageArtisanTitle').innerText = village.name;
+
+      document.querySelectorAll('.art-village-tab').forEach(btn => {
+        if (btn.id === 'art-tab-' + villageId) {
+          btn.classList.remove('bg-cream', 'text-slate-700', 'border-sand');
+          btn.classList.add('bg-charcoal', 'text-white', 'border-charcoal');
+        } else {
+          btn.classList.remove('bg-charcoal', 'text-white', 'border-charcoal');
+          btn.classList.add('bg-cream', 'text-slate-700', 'border-sand');
+        }
+      });
+
+      const spots = artisanSpotsData.filter(s => s.villageId === villageId);
+      const grid = document.getElementById('artisanSpotsGrid');
+
+      grid.innerHTML = spots.map(spot => {
+        const isAdded = selectedRouteStops.includes(spot.id);
+        return `
+          <div class="bg-cream/60 rounded-3xl overflow-hidden border ${isAdded ? 'border-terracotta ring-2 ring-terracotta/20' : 'border-sand'} hover:bg-white hover:shadow-soft transition-all flex flex-col justify-between">
+            <div>
+              <div class="relative h-44 overflow-hidden">
+                <img src="${spot.image}" alt="${spot.name}" class="w-full h-full object-cover">
+                <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 text-moss text-[11px] font-bold shadow-2xs">
+                  🕒 ${spot.openHours}
+                </div>
+              </div>
+              <div class="p-5">
+                <span class="text-[11px] font-bold text-terracotta">${spot.artisan}</span>
+                <h3 class="font-display font-extrabold text-base text-charcoal mt-0.5 leading-snug">${spot.name}</h3>
+                <p class="text-[11px] font-semibold text-moss mt-1">Chuyên môn: ${spot.specialty}</p>
+                <p class="text-xs text-slate-600 mt-2 leading-relaxed">${spot.story}</p>
+              </div>
+            </div>
+
+            <div class="px-5 pb-5 pt-3 border-t border-sand/60 flex items-center justify-between gap-2">
+              <div>
+                <span class="block text-[10px] text-slate-400 font-bold uppercase">Trải nghiệm tại xưởng</span>
+                <span class="text-xs font-extrabold text-charcoal">${spot.workshopPrice}</span>
+              </div>
+              <button onclick="toggleRouteStop('${spot.id}')" class="px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${isAdded ? 'bg-moss text-white' : 'bg-charcoal hover:bg-terracotta text-white'}">
+                <i data-lucide="${isAdded ? 'check' : 'plus'}" class="w-3.5 h-3.5"></i>
+                <span>${isAdded ? 'Đã vào lộ trình' : 'Thêm vào lộ trình'}</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function toggleRouteStop(spotId) {
+      const idx = selectedRouteStops.indexOf(spotId);
+      const spot = artisanSpotsData.find(s => s.id === spotId);
+      if (idx > -1) {
+        selectedRouteStops.splice(idx, 1);
+        showToast('Đã gỡ điểm dừng', `Đã xóa "${spot.name}" khỏi lộ trình LÀNGO.`);
+      } else {
+        selectedRouteStops.push(spotId);
+        showToast('Đã thêm vào Lộ trình LÀNGO!', `"${spot.name}" đã được ghép vào Trợ lý Lộ trình.`);
+      }
+      renderArtisanSpots(currentArtisanVillageId);
+      renderSelectedStopsPills();
+      generateAiItinerary(true);
+    }
+
+    function renderSelectedStopsPills() {
+      const container = document.getElementById('selectedStopsPills');
+      document.getElementById('selectedStopsCount').innerText = selectedRouteStops.length;
+
+      if (selectedRouteStops.length === 0) {
+        container.innerHTML = `<span class="text-[11px] text-slate-400 italic">Chưa chọn cơ sở nào. Trợ lý LÀNGO sẽ tự gợi ý tuyến tiêu chuẩn.</span>`;
+        return;
+      }
+
+      container.innerHTML = selectedRouteStops.map(id => {
+        const spot = artisanSpotsData.find(s => s.id === id);
+        if (!spot) return '';
+        return `
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white border border-sand text-[11px] font-bold text-charcoal">
+            <span class="truncate max-w-[140px]">${spot.name}</span>
+            <button type="button" onclick="toggleRouteStop('${spot.id}')" class="text-slate-400 hover:text-terracotta">×</button>
+          </span>
+        `;
+      }).join('');
+    }
+
+    // --- BƯỚC 4: TRỢ LÝ LỘ TRÌNH LÀNGO ---
+    function selectAiDuration(dur, btn) {
+      selectedAiDuration = dur;
+      document.querySelectorAll('.ai-dur-btn').forEach(b => {
+        b.classList.remove('border-2', 'border-terracotta', 'bg-terracotta/5', 'text-terracotta', 'font-bold');
+        b.classList.add('border', 'border-sand', 'bg-cream', 'text-slate-600', 'font-semibold');
+      });
+      btn.classList.remove('border', 'border-sand', 'bg-cream', 'text-slate-600', 'font-semibold');
+      btn.classList.add('border-2', 'border-terracotta', 'bg-terracotta/5', 'text-terracotta', 'font-bold');
+    }
+
+    function updateBudgetLabel(val) {
+      document.getElementById('aiBudgetDisplay').innerText = formatVND(parseInt(val));
+    }
+
+    function generateAiItinerary(silent = false) {
+      const start = document.getElementById('aiStartPoint').value;
+      const budget = parseInt(document.getElementById('aiBudgetRange').value);
+      const isFullDay = selectedAiDuration === '8h';
+
+      const chosenSpots = selectedRouteStops
+        .map(id => artisanSpotsData.find(s => s.id === id))
+        .filter(Boolean);
+
+      let title = 'Hành trình Khám phá Làng nghề & Xưởng Nghệ nhân Bản địa';
+      let distance = start === 'hoi-an' ? '5 km' : '15 km';
+      let estCost = Math.min(budget, isFullDay ? 450000 : 280000);
+      let stay = 'Giảm 20% thuê Việt phục cổng làng & Ký gửi hành lý miễn phí tại Trạm LÀNGO';
+
+      let steps = [
+        {
+          time: '08:30',
+          title: 'Khởi hành & Check-in Trạm Dừng chân LÀNGO Đầu Làng',
+          desc: 'Gửi hành lý miễn phí, nhận bản đồ số tuyến đường và mã QR LÀNGO Pass giảm giá 20% thuê Việt phục chụp ảnh.'
+        }
+      ];
+
+      if (chosenSpots.length > 0) {
+        title = `Lộ trình LÀNGO Cá nhân hóa (${chosenSpots.length} điểm dừng thủ công)`;
+        chosenSpots.forEach((spot, index) => {
+          const hour = 9 + index * 2;
+          const timeStr = (hour < 10 ? '0' + hour : hour) + ':15';
+          steps.push({
+            time: timeStr,
+            title: `Chặng ${index + 1}: ${spot.name}`,
+            desc: `Gặp gỡ ${spot.artisan}. ${spot.story} (Chi phí tham khảo: ${spot.workshopPrice}).`
+          });
+        });
+      } else {
+        steps.push({
+          time: '09:15',
+          title: 'Workshop Thực hành 45 phút tại Xưởng Nghệ nhân',
+          desc: 'Tự tay vuốt gốm bàn xoay / nhuộm lụa tơ tằm dưới sự hướng dẫn 1-1.'
+        });
+      }
+
+      steps.push({
+        time: isFullDay ? '15:30' : '11:30',
+        title: 'Đặt đặc sản OCOP & Kích hoạt giao hàng OCOP Express',
+        desc: 'Chọn sản phẩm chuẩn OCOP tại xưởng, gửi GHN/Viettel Post thẳng về Khách sạn hoặc Sân bay để tay không dạo phố.'
+      });
+
+      document.getElementById('itineraryTitle').innerText = title;
+      document.getElementById('itineraryTotalCost').innerText = 'Ước tính: ' + formatVND(estCost);
+      document.getElementById('itineraryDistance').innerText = '~' + distance;
+      document.getElementById('itineraryPartnerStay').innerText = stay;
+
+      const timelineHtml = steps.map((s, idx) => `
+        <div class="relative pl-11">
+          <div class="absolute left-0 top-1 w-10 h-10 rounded-2xl ${idx >= 1 && idx <= chosenSpots.length ? 'bg-terracotta text-white' : 'bg-cream border border-sand text-charcoal'} font-extrabold text-[11px] flex items-center justify-center shadow-2xs">
+            ${s.time}
+          </div>
+          <div class="bg-cream/60 rounded-2xl p-3.5 border border-sand/60">
+            <h4 class="font-bold text-sm text-charcoal">${s.title}</h4>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">${s.desc}</p>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('itineraryTimeline').innerHTML = timelineHtml;
+      if (!silent) {
+        showToast('Trợ lý Lộ trình LÀNGO đã tối ưu!', `Lộ trình ${chosenSpots.length} điểm dừng đã được tính toán khớp ngân sách ${formatVND(budget)}.`);
+      }
+    }
+
+    function bookFromItinerary() {
+      openWorkshopModal('ws-1');
+    }
+
+    // --- BƯỚC 5: RENDER & ĐẶT LỊCH WORKSHOP ---
+    function renderWorkshops() {
+      const grid = document.getElementById('workshopGrid');
+      grid.innerHTML = workshopsData.map(ws => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-sand shadow-soft hover:shadow-card transition-all flex flex-col justify-between group">
+          <div>
+            <div class="relative h-44 overflow-hidden">
+              <img src="${ws.image}" alt="${ws.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-terracotta text-white text-[11px] font-bold shadow-2xs">
+                Còn ${ws.slotsLeft} chỗ hôm nay
+              </div>
+              <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-full bg-white/95 text-charcoal text-[11px] font-bold">
+                ⏱ ${ws.duration}
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
+                <span class="font-bold text-moss">${ws.village}</span>
+                <span class="font-bold text-charcoal">⭐ ${ws.rating}</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-charcoal leading-snug group-hover:text-terracotta transition-colors">${ws.title}</h3>
+              <p class="text-xs text-slate-500 mt-2 flex items-center gap-1.5">
+                <i data-lucide="award" class="w-3.5 h-3.5 text-terracotta shrink-0"></i>
+                <span>${ws.artisan}</span>
+              </p>
+              <p class="text-[11px] text-slate-400 mt-1 flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-moss shrink-0"></i>
+                <span class="truncate">${ws.stopPoint}</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="px-5 pb-5 pt-3 border-t border-sand/60 flex items-center justify-between gap-2">
+            <div>
+              <span class="block text-[10px] text-slate-400 uppercase font-bold">Giá tại xưởng</span>
+              <span class="font-display font-extrabold text-lg text-terracotta">${formatVND(ws.price)}</span>
+            </div>
+            <button onclick="openWorkshopModal('${ws.id}')" class="px-4 py-2.5 rounded-xl bg-charcoal hover:bg-terracotta text-white text-xs font-bold transition-colors cursor-pointer">
+              Đặt lịch ngay
+            </button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function openWorkshopModal(wsId) {
+      selectedWorkshop = workshopsData.find(w => w.id === wsId) || workshopsData[0];
+      workshopQty = 2;
+
+      document.getElementById('modalWsImage').src = selectedWorkshop.image;
+      document.getElementById('modalWsVillage').innerText = selectedWorkshop.village;
+      document.getElementById('modalWsTitle').innerText = selectedWorkshop.title;
+      document.getElementById('modalWsArtisan').innerText = selectedWorkshop.artisan;
+      document.getElementById('modalWsDuration').innerText = selectedWorkshop.duration;
+      document.getElementById('modalWsQty').innerText = workshopQty;
+      document.getElementById('modalWsVoucher').value = 'LANGO15';
+
+      recalcWorkshopPrice();
+
+      const modal = document.getElementById('workshopModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeWorkshopModal() {
+      const modal = document.getElementById('workshopModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function changeWsQty(delta) {
+      workshopQty = Math.max(1, Math.min(15, workshopQty + delta));
+      document.getElementById('modalWsQty').innerText = workshopQty;
+      recalcWorkshopPrice();
+    }
+
+    function recalcWorkshopPrice() {
+      if (!selectedWorkshop) return;
+      const subtotal = selectedWorkshop.price * workshopQty;
+      const voucher = document.getElementById('modalWsVoucher').value.trim().toUpperCase();
+      const discountRate = (voucher === 'LANGO15' || voucher === 'LANGNGHE15') ? 0.15 : 0;
+      const discount = Math.round(subtotal * discountRate);
+      const total = subtotal - discount;
+
+      document.getElementById('wsPriceUnit').innerText = formatVND(selectedWorkshop.price);
+      document.getElementById('wsQtyText').innerText = workshopQty;
+      document.getElementById('wsSubtotal').innerText = formatVND(subtotal);
+      document.getElementById('wsDiscount').innerText = discount > 0 ? '-' + formatVND(discount) : '0đ';
+      document.getElementById('wsTotalPrice').innerText = formatVND(total);
+    }
+
+    function confirmWorkshopBooking() {
+      const date = document.getElementById('modalWsDate').value;
+      const time = document.getElementById('modalWsTime').value;
+      const totalText = document.getElementById('wsTotalPrice').innerText;
+
+      const bookingCode = 'LG-' + Math.floor(100000 + Math.random() * 900000);
+      myBookings.unshift({
+        code: bookingCode,
+        title: selectedWorkshop.title,
+        village: selectedWorkshop.village,
+        date: date,
+        time: time,
+        qty: workshopQty,
+        total: totalText
+      });
+
+      document.getElementById('bookingCountBadge').innerText = myBookings.length;
+      closeWorkshopModal();
+      showToast('Đã kích hoạt thẻ LÀNGO Pass!', `Mã QR: ${bookingCode} • ${selectedWorkshop.village} (${time}, ngày ${date}).`);
+    }
+
+    function openMyBookingsModal() {
+      const listContainer = document.getElementById('myBookingsList');
+      if (myBookings.length === 0) {
+        listContainer.innerHTML = `
+          <div class="text-center py-8 bg-cream rounded-2xl border border-sand">
+            <p class="text-sm font-semibold text-slate-600">Bạn chưa có thẻ LÀNGO Pass nào.</p>
+            <p class="text-xs text-slate-400 mt-1">Hãy chọn một Workshop cùng nghệ nhân để nhận mã QR check-in tại xưởng nhé!</p>
+          </div>
+        `;
+      } else {
+        listContainer.innerHTML = myBookings.map(b => `
+          <div class="p-4 rounded-2xl bg-cream border border-sand space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-0.5 rounded-full bg-moss text-white text-[11px] font-bold">LÀNGO Pass: ${b.code}</span>
+              <span class="text-xs font-extrabold text-terracotta">${b.total}</span>
+            </div>
+            <h4 class="font-bold text-sm text-charcoal">${b.title}</h4>
+            <p class="text-xs text-slate-500">📍 ${b.village} • 📅 ${b.date} (${b.time}) • 👥 ${b.qty} khách</p>
+          </div>
+        `).join('');
+      }
+      const modal = document.getElementById('myBookingsModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeMyBookingsModal() {
+      const modal = document.getElementById('myBookingsModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // --- BƯỚC 6: GIAN HÀNG SỐ OCOP & OCOP EXPRESS ---
+    function renderProducts(categoryFilter) {
+      const filtered = categoryFilter === 'all'
+        ? productsData
+        : productsData.filter(p => p.category === categoryFilter);
+
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = filtered.map(p => `
+        <div class="bg-cream/50 rounded-3xl overflow-hidden border border-sand hover:bg-white hover:shadow-soft transition-all flex flex-col justify-between group">
+          <div>
+            <div onclick="openProductModal('${p.id}')" class="relative h-52 overflow-hidden cursor-pointer">
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/95 text-amber-800 text-[11px] font-extrabold shadow-2xs flex items-center gap-1">
+                <span>⭐ ${p.ocopStars}</span>
+              </div>
+              <div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-moss/90 text-white text-[10px] font-bold">
+                OCOP Express
+              </div>
+            </div>
+
+            <div class="p-5">
+              <span class="text-[11px] font-bold text-slate-500">${p.village}</span>
+              <h3 onclick="openProductModal('${p.id}')" class="font-display font-bold text-base text-charcoal mt-1 cursor-pointer hover:text-terracotta transition-colors">${p.name}</h3>
+              <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">${p.story}</p>
+              
+              <!-- Nhãn tóm tắt minh bạch / cảnh báo dị ứng -->
+              <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between">
+                <button onclick="openProductModal('${p.id}')" class="text-[11px] font-bold text-amber-800 bg-amber-100/80 hover:bg-amber-200/80 px-2.5 py-1 rounded-lg flex items-center gap-1 transition-colors">
+                  <i data-lucide="info" class="w-3 h-3"></i> Thành phần & Cảnh báo dị ứng
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-5 pb-5 flex items-center justify-between gap-3">
+            <span class="font-display font-extrabold text-lg text-terracotta">${formatVND(p.price)}</span>
+            <button onclick="addToCart('${p.id}')" class="px-4 py-2.5 rounded-xl bg-charcoal hover:bg-terracotta text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function filterProducts(cat, btn) {
+      document.querySelectorAll('.prod-tab-btn').forEach(b => {
+        b.classList.remove('bg-charcoal', 'text-white');
+        b.classList.add('bg-cream', 'text-slate-700', 'border', 'border-sand');
+      });
+      btn.classList.remove('bg-cream', 'text-slate-700', 'border', 'border-sand');
+      btn.classList.add('bg-charcoal', 'text-white');
+      renderProducts(cat);
+    }
+
+    function openProductModal(prodId) {
+      const prod = productsData.find(p => p.id === prodId);
+      if (!prod) return;
+
+      document.getElementById('pdOcopBadge').innerText = '⭐ ' + prod.ocopStars;
+      document.getElementById('pdOrigin').innerText = prod.village;
+      document.getElementById('pdTitle').innerText = prod.name;
+      document.getElementById('pdImage').src = prod.image;
+      document.getElementById('pdStory').innerText = prod.story;
+      document.getElementById('pdPrice').innerText = formatVND(prod.price);
+      document.getElementById('pdIngredients').innerHTML = `<strong>Thành phần / Chất liệu:</strong> ${prod.ingredients}`;
+      document.getElementById('pdAllergy').innerHTML = `<strong>Cảnh báo dị ứng & Bảo quản:</strong> ${prod.allergyWarning}`;
+
+      const addBtn = document.getElementById('pdAddToCartBtn');
+      addBtn.onclick = () => {
+        addToCart(prod.id);
+        closeProductModal();
+      };
+
+      const modal = document.getElementById('productDetailModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('productDetailModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // --- GIỎ HÀNG & OCOP EXPRESS ---
+    function toggleCartDrawer() {
+      const drawer = document.getElementById('cartDrawer');
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        drawer.classList.add('flex');
+      } else {
+        drawer.classList.add('hidden');
+        drawer.classList.remove('flex');
+      }
+    }
+
+    function addToCart(prodId) {
+      const existing = cart.find(item => item.productId === prodId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ productId: prodId, qty: 1 });
+      }
+      updateCartUI();
+      const prod = productsData.find(p => p.id === prodId);
+      showToast('Đã thêm vào giỏ LÀNGO OCOP', `${prod.name} đã sẵn sàng gửi qua OCOP Express.`);
+    }
+
+    function updateCartItemQty(prodId, delta) {
+      const idx = cart.findIndex(item => item.productId === prodId);
+      if (idx === -1) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCountBadge').innerText = totalItems;
+
+      const container = document.getElementById('cartItemsContainer');
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 bg-cream rounded-2xl border border-sand">
+            <p class="text-sm text-slate-500">Giỏ hàng OCOP đang trống.</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = cart.map(item => {
+          const prod = productsData.find(p => p.id === item.productId);
+          return `
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-cream/70 border border-sand">
+              <img src="${prod.image}" alt="${prod.name}" class="w-16 h-16 rounded-xl object-cover shrink-0">
+              <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-xs text-charcoal truncate">${prod.name}</h4>
+                <p class="text-[11px] text-terracotta font-extrabold mt-0.5">${formatVND(prod.price)}</p>
+                <div class="flex items-center gap-2 mt-1.5">
+                  <button onclick="updateCartItemQty('${prod.id}', -1)" class="w-6 h-6 rounded-lg bg-white border border-sand text-xs font-bold hover:bg-terracotta hover:text-white">-</button>
+                  <span class="text-xs font-bold text-charcoal">${item.qty}</span>
+                  <button onclick="updateCartItemQty('${prod.id}', 1)" class="w-6 h-6 rounded-lg bg-white border border-sand text-xs font-bold hover:bg-terracotta hover:text-white">+</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      updateCartSummary();
+    }
+
+    function updateCartSummary() {
+      const subtotal = cart.reduce((sum, item) => {
+        const prod = productsData.find(p => p.id === item.productId);
+        return sum + (prod.price * item.qty);
+      }, 0);
+
+      const methodEl = document.querySelector('input[name="deliveryMethod"]:checked');
+      const method = methodEl ? methodEl.value : 'hotel';
+      let shipping = 15000;
+      if (method === 'airport') shipping = 35000;
+      if (method === 'home') shipping = 25000;
+      if (method === 'pickup' || subtotal === 0) shipping = 0;
+
+      document.getElementById('cartSubtotal').innerText = formatVND(subtotal);
+      document.getElementById('cartShippingFee').innerText = formatVND(shipping);
+      document.getElementById('cartGrandTotal').innerText = formatVND(subtotal + shipping);
+    }
+
+    function checkoutOcopCart() {
+      if (cart.length === 0) {
+        showToast('Giỏ hàng trống', 'Vui lòng chọn ít nhất 1 sản phẩm OCOP trước khi đặt hàng trên LÀNGO.');
+        return;
+      }
+      const method = document.querySelector('input[name="deliveryMethod"]:checked').value;
+      const methodNames = {
+        hotel: 'Khách sạn / Homestay trong ngày (GHN Express)',
+        airport: 'Sân bay Nội Bài / Đà Nẵng (Đóng gói chống sốc)',
+        home: 'Địa chỉ nhà riêng toàn quốc (Viettel Post)',
+        pickup: 'Nhận trực tiếp tại Xưởng Nghệ nhân / Trạm LÀNGO'
+      };
+      const address = document.getElementById('deliveryAddressInput').value.trim() || 'Điểm nhận mặc định của khách';
+
+      cart = [];
+      updateCartUI();
+      toggleCartDrawer();
+      showToast('Đơn hàng LÀNGO OCOP Express đã kích hoạt!', `Hộ nghệ nhân đang đóng gói và giao tới: ${methodNames[method]} (${address}).`);
+    }
+
+    // --- TOAST HELPER ---
+    let toastTimeout;
+    function showToast(title, message) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastMessage').innerText = message;
+      
+      toast.classList.remove('translate-x-[150%]');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-x-[150%]');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
